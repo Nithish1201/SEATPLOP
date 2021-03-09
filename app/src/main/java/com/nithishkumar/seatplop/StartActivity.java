@@ -59,7 +59,7 @@ public class StartActivity extends AppCompatActivity {
 
         Pair[] pairs = new Pair[1];
         pairs[0] = new Pair<View,String>(image1,"transition_login");
-        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StartActivity.this,pairs);
+        //ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StartActivity.this,pairs);
         startActivity(intent);
         //finish();
     }

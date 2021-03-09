@@ -119,6 +119,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="LOGIN"
+                android:onClick="callSignupScreen"
                 android:background="@color/black"
                 android:textColor="@color/white"
                 android:transitionName="transition_login"
