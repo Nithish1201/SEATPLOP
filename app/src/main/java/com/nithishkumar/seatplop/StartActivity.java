@@ -2,9 +2,12 @@ package com.nithishkumar.seatplop;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Pair;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -12,7 +15,7 @@ import android.widget.ImageView;
 
 public class StartActivity extends AppCompatActivity {
 
-    private static int SPLASH_SCREEN = 5000;
+    //private static int SPLASH_SCREEN = 5000;
     //variables
     Animation topAnim , bottAnim , leftanim , rgtanim;
     ImageView image1;
@@ -41,13 +44,23 @@ public class StartActivity extends AppCompatActivity {
         image3.setAnimation(leftanim);
         image4.setAnimation(rgtanim);
 
-        new Handler().postDelayed(new Runnable() {
+        /*new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent intent = new Intent(StartActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
-        },SPLASH_SCREEN);
+        },SPLASH_SCREEN);*/
+    }
+
+    public void callLoginScreen(View view) {
+        Intent intent = new Intent(StartActivity.this, LoginActivity.class);
+
+        Pair[] pairs = new Pair[1];
+        pairs[0] = new Pair<View,String>(image1,"transition_login");
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StartActivity.this,pairs);
+        startActivity(intent);
+        //finish();
     }
 }

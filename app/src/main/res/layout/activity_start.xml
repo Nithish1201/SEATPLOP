@@ -14,6 +14,8 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="10dp"
+        android:onClick="callLoginScreen"
+        android:transitionName="transition_login"
         android:layout_marginBottom="8dp"
         android:src="@drawable/logo_without_background"
         app:layout_constraintBottom_toBottomOf="parent"
