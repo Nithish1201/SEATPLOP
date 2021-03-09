@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">SEATPLOP</string>
+
+    <!--     General menu names   -->
+
+    <string name="home">HOME</string>
+    <string name="search">SEARCH</string>
+    <string name="all_catagories">ALL CATAGORIES</string>
+    <string name="add_missing_place">ADD MISSING PLACE</string>
+    <string name="login">Login</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Logout</string>
+    <string name="share">Share</string>
+
+    <!--     all category menu names   -->
+
+    <string name="expand_all">Expand All</string>
+
+
+
 </resources>
