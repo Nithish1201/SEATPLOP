@@ -2,6 +2,7 @@ package com.nithishkumar.seatplop;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -14,5 +15,7 @@ public class Signup3Activity extends AppCompatActivity {
     }
 
     public void callNextSignupScreen(View view) {
+        Intent intent = new Intent(Signup3Activity.this,VerifyOtpActivity.class);
+        startActivity(intent);
     }
 }
