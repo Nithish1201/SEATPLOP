@@ -2,6 +2,7 @@ package com.nithishkumar.seatplop;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Pair;
@@ -41,9 +42,12 @@ public class Signup2Activity extends AppCompatActivity {
         pairs[2] = new Pair<View,String>(login,"transition_login_btn");
         pairs[3] = new Pair<View,String>(titleText,"transition_title_text");
 
-        //ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignupActivity.this,pairs);
-
-        startActivity(intent);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(Signup2Activity.this, pairs);
+            startActivity(intent, options.toBundle());
+        } else {
+            startActivity(intent);
+        }
 
     }
 }

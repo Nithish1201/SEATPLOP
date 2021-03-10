@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Signup1Activity"
     android:background="@color/amber_yellow"
-    android:padding="15dp">
+    android:padding="15dp"
+    android:transitionName="transition_login">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -99,27 +100,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textEmailAddress"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Phone Number"
-                app:startIconDrawable="@drawable/ic_phone_icon"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:startIconTint="@color/black"
-                app:hintTextColor="@color/black"
-                android:textColorHint="@color/black"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/black"
-                app:boxStrokeWidthFocused="2dp"
-                app:boxStrokeColor="@color/black">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="phone"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 

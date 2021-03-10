@@ -11,17 +11,18 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class StartActivity extends AppCompatActivity {
 
     //private static int SPLASH_SCREEN = 5000;
     //variables
-    Animation topAnim , bottAnim , leftanim , rgtanim;
+    Animation topAnim , botmAnim;
     ImageView image1;
-    ImageView image2;
-    ImageView image3;
-    ImageView image4;
+    Button loginBtn,registerBtn;
+    TextView sloganText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,19 +31,17 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
 
         topAnim = AnimationUtils.loadAnimation(this,R.anim.start_activity_top_animation);
-        bottAnim = AnimationUtils.loadAnimation(this,R.anim.start_activity_bottom_animation);
-        leftanim =  AnimationUtils.loadAnimation(this,R.anim.start_activity_left_animation);
-        rgtanim = AnimationUtils.loadAnimation(this,R.anim.start_activity_right_animation);
+        botmAnim = AnimationUtils.loadAnimation(this,R.anim.start_activity_bottom_animation);
 
         image1 = findViewById(R.id.imageView1);
-        image2 = findViewById(R.id.imageView2);
-        image3 = findViewById(R.id.imageView3);
-        image4 = findViewById(R.id.imageView4);
+        loginBtn = findViewById(R.id.login_btn);
+        registerBtn = findViewById(R.id.register_btn);
+        sloganText = findViewById(R.id.slogan_txt);
 
         image1.setAnimation(topAnim);
-        image2.setAnimation(bottAnim);
-        image3.setAnimation(leftanim);
-        image4.setAnimation(rgtanim);
+        loginBtn.setAnimation(botmAnim);
+        registerBtn.setAnimation(botmAnim);
+        sloganText.setAnimation(botmAnim);
 
         /*new Handler().postDelayed(new Runnable() {
             @Override
@@ -58,9 +57,29 @@ public class StartActivity extends AppCompatActivity {
         Intent intent = new Intent(StartActivity.this, LoginActivity.class);
 
         Pair[] pairs = new Pair[1];
-        pairs[0] = new Pair<View,String>(image1,"transition_login");
-        //ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StartActivity.this,pairs);
-        startActivity(intent);
-        //finish();
+        pairs[0] = new Pair<View,String>(loginBtn,"transition_login");
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StartActivity.this, pairs);
+            startActivity(intent, options.toBundle());
+            finish();
+        } else {
+            startActivity(intent);
+            finish();
+        }
+    }
+
+    public void callSignupScreen(View view) {
+        Intent intent = new Intent(StartActivity.this, Signup1Activity.class);
+
+        Pair[] pairs = new Pair[1];
+        pairs[0] = new Pair<View,String>(registerBtn,"transition_login");
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StartActivity.this, pairs);
+            startActivity(intent, options.toBundle());
+            finish();
+        } else {
+            startActivity(intent);
+            finish();
+        }
     }
 }
