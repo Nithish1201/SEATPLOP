@@ -26,7 +26,7 @@
             android:fontFamily="@font/muli_black"
             android:text="MAKE SELECTION"
             android:textAllCaps="true"
-            android:textColor="@color/black"
+            android:textColor="@color/amber_yellow"
             android:textSize="40sp" />
 
         <TextView
@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/mobile_icon"
                 android:layout_below="@id/mobile_title"
-                android:textColor="@color/black"
+                android:textColor="@color/amber_yellow"
                 android:fontFamily="@font/muli"
                 android:text="+919360637610"
                 android:textSize="25sp" />
@@ -114,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/mail_icon"
                 android:layout_below="@id/mail_title"
-                android:textColor="@color/black"
+                android:textColor="@color/amber_yellow"
                 android:fontFamily="@font/muli"
                 android:text="support@gmail.com"
                 android:textSize="25sp" />
@@ -122,6 +122,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:onClick="sample"
                 android:background="@drawable/flag_transparent"/>
 
         </RelativeLayout>

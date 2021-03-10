@@ -63,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="190dp"
-        android:text="PLOP Your SEATS Across India..."
+        android:text="PLOP Your SEATS Across  India..."
         android:textSize="20sp"
         android:fontFamily="@font/muli_black"
         android:textStyle="bold"
