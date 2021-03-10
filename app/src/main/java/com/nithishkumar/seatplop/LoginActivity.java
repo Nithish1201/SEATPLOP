@@ -19,4 +19,9 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(LoginActivity.this, Signup1Activity.class);
         startActivity(intent);
     }
+
+    public void callForgotPasswordScreen(View view) {
+        Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+        startActivity(intent);
+    }
 }

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SEATPLOP">
-        <activity android:name=".MakeSelectionActivity"></activity>
+        <activity android:name=".SetNewPasswordActivity"></activity>
+        <activity android:name=".MakeSelectionActivity" />
         <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".VerifyOtpActivity" />
         <activity android:name=".Signup3Activity" />
