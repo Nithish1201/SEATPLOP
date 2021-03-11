@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/amber_yellow"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".VerifyOtpActivity">
 
@@ -25,7 +26,20 @@
             android:layout_gravity="center"
             android:fontFamily="@font/muli_black"
             android:includeFontPadding="false"
-            android:text="CO\nDE"
+            android:text="CO"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="100sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/muli_black"
+            android:includeFontPadding="false"
+            android:text="DE"
+            android:layout_marginTop="-40dp"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/black"
@@ -65,7 +79,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             app:lineColor="@color/black"
-            android:itemBackground="@color/white"
+            android:itemBackground="@color/light_white"
             style="@style/PinWidget.PinView"
             android:inputType="number"
             android:cursorVisible="true"
@@ -76,10 +90,11 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/amber_yellow"
+            android:transitionName="transition_otp"
+            android:background="@color/black"
             android:text="Verify Code"
             android:layout_marginTop="30dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/white"/>
 
 
     </LinearLayout>

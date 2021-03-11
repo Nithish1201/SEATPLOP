@@ -2,8 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="base_orange">#ff5000</color>
-    <color name="light_base_orange">#ff6a00</color>
     <color name="amber_yellow">#Ffc400</color>
     <color name="yellow">#Fbff00</color>
+    <color name="colorPrimary">#455cde</color>
+    <color name="light_black">#292929</color>
+    <color name="light_white">#c2bdbf</color>
 </resources>

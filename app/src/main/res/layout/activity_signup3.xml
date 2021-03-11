@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Signup3Activity"
+    android:id="@+id/scroll_view"
+    android:transitionName="transition_otp"
     android:background="@color/amber_yellow"
     android:padding="15dp">
 
@@ -40,6 +42,7 @@
             android:layout_marginTop="40dp">
 
             <com.hbb20.CountryCodePicker
+                android:id="@+id/country_code_picker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:ccp_autoDetectCountry="true"
@@ -50,6 +53,7 @@
                 android:background="@drawable/black_border"/>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/signup_phone_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Phone Number"
@@ -79,7 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="NEXT"
-            android:onClick="callNextSignupScreen"
+            android:onClick="callVerifyOtpScreen"
             android:background="@color/black"
             android:layout_marginTop="20dp"
             android:textColor="@color/white"

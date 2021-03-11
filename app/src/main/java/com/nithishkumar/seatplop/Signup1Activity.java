@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +21,7 @@ public class Signup1Activity extends AppCompatActivity {
     TextView titleText;
 
     //get data variables
-    TextInputLayout fullname, username, email, password;
+    TextInputLayout fullName, userName, email, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +35,8 @@ public class Signup1Activity extends AppCompatActivity {
         titleText = findViewById(R.id.signup_title_text);
 
         //hooks for data variables
-        fullname = findViewById(R.id.signup_fullname);
-        username = findViewById(R.id.signup_username);
+        fullName = findViewById(R.id.signup_fullname);
+        userName = findViewById(R.id.signup_username);
         email = findViewById(R.id.signup_email);
         password = findViewById(R.id.signup_password);
 
@@ -51,8 +50,8 @@ public class Signup1Activity extends AppCompatActivity {
 
         Intent intent = new Intent(getApplicationContext(), Signup2Activity.class);
 
-        intent.putExtra("fullname", fullname.toString());
-        intent.putExtra("username",  username.toString());
+        intent.putExtra("fullname", fullName.toString());
+        intent.putExtra("username",  userName.toString());
         intent.putExtra("email",  email.toString());
         intent.putExtra("password",  password.toString());
 
@@ -75,32 +74,32 @@ public class Signup1Activity extends AppCompatActivity {
     }
 
     private boolean validateFullname() {
-        String val = fullname.getEditText().getText().toString().trim();
+        String val = fullName.getEditText().getText().toString().trim();
         if (val.isEmpty()) {
-            fullname.setError("Field cannot be empty");
+            fullName.setError("Field cannot be empty");
             return false;
         } else {
-            fullname.setError(null);
-            fullname.setEnabled(false);
+            fullName.setError(null);
+            fullName.setEnabled(false);
             return true;
         }
     }
 
     private boolean validateUsername() {
-        String val = username.getEditText().getText().toString().trim();
+        String val = userName.getEditText().getText().toString().trim();
         String checkspaces = "\\A\\w{1,40}\\z";     //to limit users a total length of 40 and no numbers
         if (val.isEmpty()) {
-            username.setError("Field cannot be empty");
+            userName.setError("Field cannot be empty");
             return false;
         } else if (val.length() > 20) {
-            username.setError("Username is too large");
+            userName.setError("Username is too large");
             return false;
         } else if (!val.matches(checkspaces)) {
-            username.setError("No white spaces are allowed!");
+            userName.setError("No white spaces are allowed!");
             return false;
         } else {
-            username.setError(null);
-            username.setEnabled(false);
+            userName.setError(null);
+            userName.setEnabled(false);
             return true;
         }
     }
