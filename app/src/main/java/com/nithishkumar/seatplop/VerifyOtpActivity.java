@@ -19,6 +19,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.nithishkumar.seatplop.Model.Users;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,6 +31,8 @@ public class VerifyOtpActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     String codeBySystem;
 
+    String phoneNo,fullName,userName,email,password,date,age,gender;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +40,16 @@ public class VerifyOtpActivity extends AppCompatActivity {
 
         pinView = findViewById(R.id.pin_view);
         mAuth = FirebaseAuth.getInstance();
-        String phoneNo = getIntent().getStringExtra("phonenumber");
+
+
+         phoneNo = getIntent().getStringExtra("phonenumber");
+         fullName = getIntent().getStringExtra("fullname");
+         userName = getIntent().getStringExtra("username");
+         email = getIntent().getStringExtra("email");
+         password = getIntent().getStringExtra("password");
+         date = getIntent().getStringExtra("date");
+         age = getIntent().getStringExtra("age");
+         gender = getIntent().getStringExtra("gender");
 
         sendVerificationCodeToUser(phoneNo);
 
@@ -90,6 +104,7 @@ public class VerifyOtpActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
+                            storeNewUsersData();
                             Toast.makeText(VerifyOtpActivity.this, "Verification completed", Toast.LENGTH_SHORT).show();
 
                         } else {
@@ -100,6 +115,14 @@ public class VerifyOtpActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void storeNewUsersData() {
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        Users addNewUser = new Users(phoneNo,fullName,userName,email,password,date,age,gender);
+        reference.child("Users").child(phoneNo).setValue(addNewUser);
+
     }
 
     public void callNextScreenFromOtp(View view) {

@@ -50,10 +50,10 @@ public class Signup1Activity extends AppCompatActivity {
 
         Intent intent = new Intent(getApplicationContext(), Signup2Activity.class);
 
-        intent.putExtra("fullname", fullName.toString());
-        intent.putExtra("username",  userName.toString());
-        intent.putExtra("email",  email.toString());
-        intent.putExtra("password",  password.toString());
+        intent.putExtra("fullname", fullName.getEditText().getText().toString());
+        intent.putExtra("username",  userName.getEditText().getText().toString());
+        intent.putExtra("email",  email.getEditText().getText().toString());
+        intent.putExtra("password",  password.getEditText().getText().toString());
 
         //add transition
         Pair[] pairs;
