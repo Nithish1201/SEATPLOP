@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.chaos.view.PinView;
@@ -30,6 +31,7 @@ public class VerifyOtpActivity extends AppCompatActivity {
     PinView pinView;
     FirebaseAuth mAuth;
     String codeBySystem;
+    TextView topText;
 
     String phoneNo,fullName,userName,email,password,date,age,gender;
 
@@ -40,7 +42,7 @@ public class VerifyOtpActivity extends AppCompatActivity {
 
         pinView = findViewById(R.id.pin_view);
         mAuth = FirebaseAuth.getInstance();
-
+        topText = findViewById(R.id.code_verify_text);
 
          phoneNo = getIntent().getStringExtra("phonenumber");
          fullName = getIntent().getStringExtra("fullname");
@@ -50,6 +52,8 @@ public class VerifyOtpActivity extends AppCompatActivity {
          date = getIntent().getStringExtra("date");
          age = getIntent().getStringExtra("age");
          gender = getIntent().getStringExtra("gender");
+
+        topText.setText("ENTER ONE TIME PASSWORD SENT TO "+phoneNo);
 
         sendVerificationCodeToUser(phoneNo);
 

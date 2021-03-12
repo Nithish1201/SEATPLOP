@@ -137,7 +137,7 @@
             android:layout_height="wrap_content"
             android:text="NEXT"
             android:onClick="callNextSignupScreen"
-            android:background="@color/black"
+            android:background="@drawable/button_background_black"
             android:layout_marginTop="20dp"
             android:textColor="@color/white"
             android:elevation="5dp"

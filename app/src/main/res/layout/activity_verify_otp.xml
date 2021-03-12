@@ -58,6 +58,7 @@
             android:textSize="24sp" />
 
         <TextView
+            android:id="@+id/code_verify_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -93,7 +94,7 @@
             android:layout_height="wrap_content"
             android:transitionName="transition_otp"
             android:onClick="callNextScreenFromOtp"
-            android:background="@color/black"
+            android:background="@drawable/button_background_black"
             android:text="Verify Code"
             android:layout_marginTop="30dp"
             android:textColor="@color/white"/>
