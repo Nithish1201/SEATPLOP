@@ -3,6 +3,7 @@ package com.nithishkumar.seatplop;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,7 +34,7 @@ public class VerifyOtpActivity extends AppCompatActivity {
     String codeBySystem;
     TextView topText;
 
-    String phoneNo,fullName,userName,email,password,date,age,gender;
+    String phoneNo,fullName,userName,email,password,date,age,gender,whatToDo,forgotPassPhoneNo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,8 @@ public class VerifyOtpActivity extends AppCompatActivity {
          date = getIntent().getStringExtra("date");
          age = getIntent().getStringExtra("age");
          gender = getIntent().getStringExtra("gender");
+
+         whatToDo = getIntent().getStringExtra("whatToDo");
 
         topText.setText("ENTER ONE TIME PASSWORD SENT TO "+phoneNo);
 
@@ -108,7 +111,14 @@ public class VerifyOtpActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            storeNewUsersData();
+                            if (whatToDo.equals("updateData")){
+                                Intent intent = new Intent(VerifyOtpActivity.this,SetNewPasswordActivity.class);
+                                intent.putExtra("phoneNo",phoneNo);
+                                startActivity(intent);
+                                finish();
+                            }else{
+                                storeNewUsersData();
+                            }
                             Toast.makeText(VerifyOtpActivity.this, "Verification completed", Toast.LENGTH_SHORT).show();
 
                         } else {

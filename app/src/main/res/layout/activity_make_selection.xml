@@ -122,7 +122,6 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:onClick="sample"
                 android:background="@drawable/flag_transparent"/>
 
         </RelativeLayout>

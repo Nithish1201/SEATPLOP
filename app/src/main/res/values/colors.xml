@@ -7,4 +7,5 @@
     <color name="colorPrimary">#455cde</color>
     <color name="light_black">#292929</color>
     <color name="light_white">#c2bdbf</color>
+    <color name="translucent_black">#80000000</color>
 </resources>

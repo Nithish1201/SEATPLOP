@@ -15,10 +15,12 @@ public class MakeSelectionActivity extends AppCompatActivity {
     }
 
     public void callVerifyOtpScreen(View view) {
+
+        Intent intent = new Intent(MakeSelectionActivity.this,VerifyOtpActivity.class);
+        intent.putExtra("phonenumber",getIntent().getStringExtra("phoneNo"));
+        intent.putExtra("whatToDo", getIntent().getStringExtra("whatToDo"));
+        startActivity(intent);
+
     }
 
-    public void sample(View view) {
-        Intent intent = new Intent(MakeSelectionActivity.this, SetNewPasswordActivity.class);
-        startActivity(intent);
-    }
 }

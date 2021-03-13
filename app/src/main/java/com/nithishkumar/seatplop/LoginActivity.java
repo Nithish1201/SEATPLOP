@@ -26,6 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.hbb20.CountryCodePicker;
+import com.nithishkumar.seatplop.Model.CheckInternet;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -47,11 +48,17 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    
+
     public void logInUser(View view) {
+
+        CheckInternet checkInternet = new CheckInternet();
         
-        if (!isConnected(this)){
+        if (!checkInternet.isConnected(this)){
             showCustomDialog();
         }
+
+
         if (!validateUserFields()) {
             return;
         }
@@ -127,17 +134,7 @@ public class LoginActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    private boolean isConnected(LoginActivity loginActivity) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) loginActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo wifiCon = connectivityManager.getNetworkInfo(connectivityManager.TYPE_WIFI);
-        NetworkInfo mobileCon = connectivityManager.getNetworkInfo(connectivityManager.TYPE_MOBILE);
 
-        if ((wifiCon != null && wifiCon.isConnected() || (mobileCon != null && mobileCon.isConnected()))){
-            return true;
-        }else {
-            return false;
-        }
-    }
 
     private boolean validateUserFields() {
 
