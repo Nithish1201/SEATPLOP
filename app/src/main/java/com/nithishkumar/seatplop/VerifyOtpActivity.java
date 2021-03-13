@@ -74,7 +74,7 @@ public class VerifyOtpActivity extends AppCompatActivity {
 
     }
 
-    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+    private final PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
         @Override
         public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
@@ -111,12 +111,15 @@ public class VerifyOtpActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            if (whatToDo.equals("updateData")){
+                            if (whatToDo != null && whatToDo.equals("updateData")){
                                 Intent intent = new Intent(VerifyOtpActivity.this,SetNewPasswordActivity.class);
                                 intent.putExtra("phoneNo",phoneNo);
                                 startActivity(intent);
                                 finish();
-                            }else{
+                            } else if (whatToDo != null && whatToDo.equals("loginUser")){
+                                Intent intent = new Intent(VerifyOtpActivity.this,MainActivity.class);
+                                startActivity(intent);
+                            } else {
                                 storeNewUsersData();
                             }
                             Toast.makeText(VerifyOtpActivity.this, "Verification completed", Toast.LENGTH_SHORT).show();
@@ -133,9 +136,33 @@ public class VerifyOtpActivity extends AppCompatActivity {
 
     private void storeNewUsersData() {
 
+        /**
+
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d("info","createUserWithEmail:success");
+                            Toast.makeText(VerifyOtpActivity.this, "Authentication success.",
+                                    Toast.LENGTH_SHORT).show();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w("info", "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(VerifyOtpActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+         **/
+
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
         Users addNewUser = new Users(phoneNo,fullName,userName,email,password,date,age,gender);
         reference.child("Users").child(phoneNo).setValue(addNewUser);
+
+        Intent intent = new Intent(VerifyOtpActivity.this,MainActivity.class);
+        startActivity(intent);
 
     }
 

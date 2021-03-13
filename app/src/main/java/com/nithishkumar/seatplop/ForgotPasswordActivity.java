@@ -37,6 +37,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         countryCodePicker = findViewById(R.id.forget_password_country_code_picker);
         progressBar = findViewById(R.id.forgot_password_progress_bar);
 
+        progressBar.setVisibility(View.INVISIBLE);
+
     }
 
     public void callMakeSelectionScreen(View view) {

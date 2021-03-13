@@ -109,6 +109,7 @@
                 android:layout_marginTop="10dp">
 
                 <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/remember_me"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/Widget.AppCompat.CompoundButton.CheckBox"
@@ -134,8 +135,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/login_button"
-                android:text="LOGIN"
-                android:onClick="logInUser"
+                android:text="VERIFY OTP"
+                android:onClick="VerifyOtp"
                 android:layout_below="@id/relative_layout"
                 android:background="@drawable/button_background_black"
                 android:textColor="@color/white"
@@ -156,13 +157,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="20dp"
-                android:visibility="invisible"
-                android:background="@drawable/white_circle"
                 android:layout_centerInParent="true">
 
                 <ProgressBar
                     android:id="@+id/login_progress_bar"
                     android:layout_width="30dp"
+                    android:background="@drawable/white_circle"
                     android:layout_height="30dp"
                     android:layout_centerInParent="true"
                     android:elevation="10dp"/>

@@ -14,6 +14,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -39,6 +43,7 @@ public class StartActivity extends AppCompatActivity {
         sloganText = findViewById(R.id.slogan_txt);
 
         image1.setAnimation(topAnim);
+
         loginBtn.setAnimation(botmAnim);
         registerBtn.setAnimation(botmAnim);
         sloganText.setAnimation(botmAnim);
@@ -53,9 +58,24 @@ public class StartActivity extends AppCompatActivity {
         },SPLASH_SCREEN);*/
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (FirebaseAuth.getInstance().getCurrentUser() !=null){
+            Intent intent = new Intent(StartActivity.this,MainActivity.class);
+            startActivity(intent);
+            Toast.makeText(this,FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber(), Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, "no current user", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     public void callLoginScreen(View view) {
         Intent intent = new Intent(StartActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
 
+        /**
         Pair[] pairs = new Pair[1];
         pairs[0] = new Pair<View,String>(loginBtn,"transition_login");
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
@@ -66,11 +86,15 @@ public class StartActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+         **/
     }
 
     public void callSignupScreen(View view) {
         Intent intent = new Intent(StartActivity.this, Signup1Activity.class);
+        startActivity(intent);
+        finish();
 
+        /**
         Pair[] pairs = new Pair[1];
         pairs[0] = new Pair<View,String>(registerBtn,"transition_login");
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
@@ -81,5 +105,6 @@ public class StartActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+         **/
     }
 }

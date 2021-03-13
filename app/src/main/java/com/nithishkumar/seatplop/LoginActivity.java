@@ -16,10 +16,13 @@ import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -27,6 +30,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.hbb20.CountryCodePicker;
 import com.nithishkumar.seatplop.Model.CheckInternet;
+import com.nithishkumar.seatplop.Model.Users;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -34,6 +38,10 @@ public class LoginActivity extends AppCompatActivity {
     TextInputLayout phoneNo, password;
     CountryCodePicker loginCountryCodePicker;
     ProgressBar progressBar;
+    CheckBox rememberMe;
+
+    FirebaseAuth Auth;
+    FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,16 +53,20 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.login_password);
         progressBar = findViewById(R.id.login_progress_bar);
         loginCountryCodePicker = findViewById(R.id.login_country_code_picker);
+        rememberMe = findViewById(R.id.remember_me);
+
+        Auth = FirebaseAuth.getInstance();
+        currentUser = Auth.getCurrentUser();
+
+        progressBar.setVisibility(View.INVISIBLE);
 
     }
 
-    
-
-    public void logInUser(View view) {
+    public void VerifyOtp(View view) {
 
         CheckInternet checkInternet = new CheckInternet();
-        
-        if (!checkInternet.isConnected(this)){
+
+        if (!checkInternet.isConnected(this)) {
             showCustomDialog();
         }
 
@@ -89,7 +101,14 @@ public class LoginActivity extends AppCompatActivity {
                     if (systemPassword.equals(passWord)) {
                         password.setError(null);
                         password.setErrorEnabled(false);
-                        Toast.makeText(LoginActivity.this, finalPhoneNum, Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(LoginActivity.this,VerifyOtpActivity.class);
+                        intent.putExtra("phonenumber", completePhoneNo);
+                        intent.putExtra("whatToDo", "loginUser");
+                        startActivity(intent);
+
+                        Toast.makeText(LoginActivity.this, "Both are correct", Toast.LENGTH_SHORT).show();
+
                     } else {
                         progressBar.setVisibility(View.GONE);
                         Toast.makeText(LoginActivity.this, "password does not match!", Toast.LENGTH_SHORT).show();
@@ -103,8 +122,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 progressBar.setVisibility(View.GONE);
-                Log.i("info",error.getMessage());
-                Log.i("info",error.getDetails());
+                Log.i("info", error.getMessage());
+                Log.i("info", error.getDetails());
                 Toast.makeText(LoginActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
@@ -125,7 +144,7 @@ public class LoginActivity extends AppCompatActivity {
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        startActivity(new Intent(getApplicationContext(),StartActivity.class));
+                        startActivity(new Intent(getApplicationContext(), StartActivity.class));
                         finish();
                     }
                 });
@@ -133,7 +152,6 @@ public class LoginActivity extends AppCompatActivity {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
-
 
 
     private boolean validateUserFields() {
@@ -171,13 +189,13 @@ public class LoginActivity extends AppCompatActivity {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(LoginActivity.this, pairs);
             startActivity(intent, options.toBundle());
-            finish();
         } else {
             startActivity(intent);
-            finish();
         }
     }
 
     public void callSignupScreen(View view) {
+        Intent intent = new Intent(LoginActivity.this, Signup1Activity.class);
+        startActivity(intent);
     }
 }

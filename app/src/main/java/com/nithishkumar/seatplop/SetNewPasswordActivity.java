@@ -30,6 +30,8 @@ public class SetNewPasswordActivity extends AppCompatActivity {
         confirmNewPassword = findViewById(R.id.confirm_new_password);
         progressBar = findViewById(R.id.set_new_password_progress_bar);
 
+        progressBar.setVisibility(View.INVISIBLE);
+
         phoneNum = getIntent().getStringExtra("phoneNo");
 
     }
@@ -44,9 +46,11 @@ public class SetNewPasswordActivity extends AppCompatActivity {
         if(!validatePassword()){
             return;
         }
-        String password = newPassword.getEditText().getText().toString().trim();
 
         progressBar.setVisibility(View.VISIBLE);
+
+        String password = newPassword.getEditText().getText().toString().trim();
+
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
 
         reference.child(phoneNum).child("password").setValue(password);
