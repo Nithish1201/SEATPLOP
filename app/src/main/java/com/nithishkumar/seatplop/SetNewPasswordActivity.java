@@ -36,6 +36,14 @@ public class SetNewPasswordActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(SetNewPasswordActivity.this, LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
+
     public void callForgotPasswordMessageScreen(View view) {
 
         CheckInternet checkInternet = new CheckInternet();

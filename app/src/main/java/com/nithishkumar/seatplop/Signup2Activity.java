@@ -122,4 +122,9 @@ public class Signup2Activity extends AppCompatActivity {
         }
     }
 
+    public void callLoginScreen(View view) {
+        Intent intent = new Intent(Signup2Activity.this,LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
 }

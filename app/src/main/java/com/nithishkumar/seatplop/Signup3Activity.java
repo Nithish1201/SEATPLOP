@@ -80,4 +80,10 @@ public class Signup3Activity extends AppCompatActivity {
             return true;
         }
     }
+
+    public void callLoginScreen(View view) {
+        Intent intent = new Intent(Signup3Activity.this,LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
 }

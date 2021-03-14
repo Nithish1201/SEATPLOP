@@ -117,8 +117,9 @@ public class VerifyOtpActivity extends AppCompatActivity {
                                 startActivity(intent);
                                 finish();
                             } else if (whatToDo != null && whatToDo.equals("loginUser")){
-                                Intent intent = new Intent(VerifyOtpActivity.this,MainActivity.class);
+                                Intent intent = new Intent(VerifyOtpActivity.this,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
+                                finish();
                             } else {
                                 storeNewUsersData();
                             }
@@ -161,9 +162,29 @@ public class VerifyOtpActivity extends AppCompatActivity {
         Users addNewUser = new Users(phoneNo,fullName,userName,email,password,date,age,gender);
         reference.child("Users").child(phoneNo).setValue(addNewUser);
 
-        Intent intent = new Intent(VerifyOtpActivity.this,MainActivity.class);
+        Intent intent = new Intent(VerifyOtpActivity.this,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+        finish();
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if(whatToDo.equals("updateData")){
+            Intent intent = new Intent(VerifyOtpActivity.this,LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }
+        else  if (whatToDo.equals("loginUser")){
+            Intent intent = new Intent(VerifyOtpActivity.this,LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }else {
+            Intent intent = new Intent(VerifyOtpActivity.this,Signup1Activity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }
     }
 
     public void callNextScreenFromOtp(View view) {

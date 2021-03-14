@@ -19,6 +19,8 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 public class StartActivity extends AppCompatActivity {
 
     //private static int SPLASH_SCREEN = 5000;
@@ -56,18 +58,6 @@ public class StartActivity extends AppCompatActivity {
                 finish();
             }
         },SPLASH_SCREEN);*/
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (FirebaseAuth.getInstance().getCurrentUser() !=null){
-            Intent intent = new Intent(StartActivity.this,MainActivity.class);
-            startActivity(intent);
-            Toast.makeText(this,FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber(), Toast.LENGTH_SHORT).show();
-        }else {
-            Toast.makeText(this, "no current user", Toast.LENGTH_SHORT).show();
-        }
     }
 
     public void callLoginScreen(View view) {
