@@ -1,15 +1,12 @@
-package com.nithishkumar.seatplop;
+package com.nithishkumar.seatplop.LoginSignup;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
@@ -30,7 +27,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.hbb20.CountryCodePicker;
 import com.nithishkumar.seatplop.Model.CheckInternet;
-import com.nithishkumar.seatplop.Model.Users;
+import com.nithishkumar.seatplop.R;
 
 public class LoginActivity extends AppCompatActivity {
 

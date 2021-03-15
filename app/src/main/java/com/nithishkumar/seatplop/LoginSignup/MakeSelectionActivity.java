@@ -1,10 +1,12 @@
-package com.nithishkumar.seatplop;
+package com.nithishkumar.seatplop.LoginSignup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.nithishkumar.seatplop.R;
 
 public class MakeSelectionActivity extends AppCompatActivity {
 

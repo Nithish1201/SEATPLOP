@@ -1,4 +1,4 @@
-package com.nithishkumar.seatplop;
+package com.nithishkumar.seatplop.LoginSignup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.nithishkumar.seatplop.Model.CheckInternet;
+import com.nithishkumar.seatplop.R;
 
 public class SetNewPasswordActivity extends AppCompatActivity {
 

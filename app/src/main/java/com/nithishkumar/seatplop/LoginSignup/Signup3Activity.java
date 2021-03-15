@@ -1,4 +1,4 @@
-package com.nithishkumar.seatplop;
+package com.nithishkumar.seatplop.LoginSignup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,10 +8,10 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 import android.widget.ScrollView;
-import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.hbb20.CountryCodePicker;
+import com.nithishkumar.seatplop.R;
 
 public class Signup3Activity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.nithishkumar.seatplop;
+package com.nithishkumar.seatplop.LoginSignup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.nithishkumar.seatplop.R;
 
 public class Signup1Activity extends AppCompatActivity {
 

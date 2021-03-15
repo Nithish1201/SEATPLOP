@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Signup3Activity"
+    tools:context=".LoginSignup.Signup3Activity"
     android:id="@+id/scroll_view"
     android:transitionName="transition_otp"
-    android:background="@color/amber_yellow"
+    android:background="@color/colorPrimary"
     android:padding="15dp">
 
     <LinearLayout

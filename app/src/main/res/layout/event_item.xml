@@ -32,7 +32,7 @@
 
             <LinearLayout
                 android:id="@+id/lay_event_name"
-                android:layout_width="wrap_content"
+                android:layout_width="260dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
@@ -44,17 +44,17 @@
 
                 <TextView
                     android:id="@+id/event_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/baloo"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:textAlignment="center"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="17sp"
+                    android:autoSizeMaxTextSize="40sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:paddingStart="3dp"
                     android:text="Event name"
                     android:textColor="@color/black"
-                    android:textSize="30sp" />
+                    android:textSize="17sp" />
 
             </LinearLayout>
 
@@ -62,7 +62,7 @@
                 android:id="@+id/lay_event_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/lay_event_name"
+                android:layout_above="@+id/lay_stadium_name"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -71,7 +71,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="35dp"
+                        android:layout_width="25dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:src="@drawable/calendar"/>
@@ -124,9 +124,10 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="35dp"
-                        android:layout_height="20dp"
+                        android:layout_width="25dp"
+                        android:layout_height="22dp"
                         android:layout_gravity="center"
+                        android:foregroundGravity="center"
                         android:src="@drawable/clock"/>
 
                     <TextView
@@ -138,7 +139,7 @@
                         android:gravity="center"
                         android:textAlignment="center"
                         android:padding="2dp"
-                        android:text="8 Hrs"
+                        android:text="28 Hrs"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
@@ -176,6 +177,11 @@
 
             </LinearLayout>
 
+            <Button
+                android:id="@+id/card_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#00000000"/>
 
         </RelativeLayout>
 

@@ -3,8 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="amber_yellow">#Ffc400</color>
-    <color name="yellow">#Fbff00</color>
-    <color name="colorPrimary">#455cde</color>
+    <color name="colorPrimary">#03C6C7</color>
     <color name="light_black">#292929</color>
     <color name="light_white">#c2bdbf</color>
     <color name="lightWhite">#f2f5f8</color>

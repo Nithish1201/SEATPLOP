@@ -1,4 +1,4 @@
-package com.nithishkumar.seatplop;
+package com.nithishkumar.seatplop.LoginSignup;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,13 +17,14 @@ import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.nithishkumar.seatplop.MainActivity;
 import com.nithishkumar.seatplop.Model.Users;
+import com.nithishkumar.seatplop.R;
 
 import java.util.concurrent.TimeUnit;
 
@@ -117,7 +118,7 @@ public class VerifyOtpActivity extends AppCompatActivity {
                                 startActivity(intent);
                                 finish();
                             } else if (whatToDo != null && whatToDo.equals("loginUser")){
-                                Intent intent = new Intent(VerifyOtpActivity.this,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                Intent intent = new Intent(VerifyOtpActivity.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
                                 finish();
                             } else {

@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SEATPLOP">
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".ForgotPasswordMessageActivity" />
-        <activity android:name=".SetNewPasswordActivity" />
-        <activity android:name=".MakeSelectionActivity" />
-        <activity android:name=".ForgotPasswordActivity" />
-        <activity android:name=".VerifyOtpActivity" />
-        <activity android:name=".Signup3Activity" />
-        <activity android:name=".Signup2Activity" />
-        <activity android:name=".Signup1Activity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".StartActivity">
+        <activity android:name=".LoginSignup.ForgotPasswordMessageActivity" />
+        <activity android:name=".LoginSignup.SetNewPasswordActivity" />
+        <activity android:name=".LoginSignup.MakeSelectionActivity" />
+        <activity android:name=".LoginSignup.ForgotPasswordActivity" />
+        <activity android:name=".LoginSignup.VerifyOtpActivity" />
+        <activity android:name=".LoginSignup.Signup3Activity" />
+        <activity android:name=".LoginSignup.Signup2Activity" />
+        <activity android:name=".LoginSignup.Signup1Activity" />
+        <activity android:name=".LoginSignup.LoginActivity" />
+        <activity android:name=".LoginSignup.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -8,12 +8,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.nithishkumar.seatplop.Fragments.HomeFragment;
 import com.nithishkumar.seatplop.Fragments.ProfileFragment;
+import com.nithishkumar.seatplop.LoginSignup.StartActivity;
+import com.nithishkumar.seatplop.Model.Events;
+import com.nithishkumar.seatplop.Model.Stadiums;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void signOut(View view) {
         Auth.signOut();
-        Intent intent = new Intent(MainActivity.this,StartActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Intent intent = new Intent(MainActivity.this, StartActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
     }

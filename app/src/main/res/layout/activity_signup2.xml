@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Signup2Activity"
-    android:background="@color/amber_yellow"
+    tools:context=".LoginSignup.Signup2Activity"
+    android:background="@color/colorPrimary"
     android:padding="15dp">
 
     <LinearLayout
