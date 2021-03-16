@@ -2,17 +2,17 @@ package com.nithishkumar.seatplop.Model;
 
 public class Events {
 
-    String name, from, to, time, stadiumName, bookedSeats, notBookedSeats;
+    private String name, from, to, time, stadium, bookedSeats, notBookedSeats;
 
     public Events() {
     }
 
-    public Events(String name, String from, String to, String time, String stadiumName, String bookedSeats, String notBookedSeats) {
+    public Events(String name, String from, String to, String time, String stadium, String bookedSeats, String notBookedSeats) {
         this.name = name;
         this.from = from;
         this.to = to;
         this.time = time;
-        this.stadiumName = stadiumName;
+        this.stadium = stadium;
         this.bookedSeats = bookedSeats;
         this.notBookedSeats = notBookedSeats;
     }
@@ -49,12 +49,12 @@ public class Events {
         this.time = time;
     }
 
-    public String getStadiumName() {
-        return stadiumName;
+    public String getStadium() {
+        return stadium;
     }
 
-    public void setStadiumName(String stadiumName) {
-        this.stadiumName = stadiumName;
+    public void setStadium(String stadium) {
+        this.stadium = stadium;
     }
 
     public String getBookedSeats() {

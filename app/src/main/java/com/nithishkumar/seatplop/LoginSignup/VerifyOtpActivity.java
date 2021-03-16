@@ -35,7 +35,7 @@ public class VerifyOtpActivity extends AppCompatActivity {
     String codeBySystem;
     TextView topText;
 
-    String phoneNo,fullName,userName,email,password,date,age,gender,whatToDo,forgotPassPhoneNo;
+    String phoneNo,fullName,userName,email,password,date,age,gender,whatToDo,location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +54,7 @@ public class VerifyOtpActivity extends AppCompatActivity {
          date = getIntent().getStringExtra("date");
          age = getIntent().getStringExtra("age");
          gender = getIntent().getStringExtra("gender");
+         location = "Tamilnadu";
 
          whatToDo = getIntent().getStringExtra("whatToDo");
 
@@ -160,7 +161,7 @@ public class VerifyOtpActivity extends AppCompatActivity {
          **/
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        Users addNewUser = new Users(phoneNo,fullName,userName,email,password,date,age,gender);
+        Users addNewUser = new Users(phoneNo,fullName,userName,email,password,date,age,gender,location);
         reference.child("Users").child(phoneNo).setValue(addNewUser);
 
         Intent intent = new Intent(VerifyOtpActivity.this,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);

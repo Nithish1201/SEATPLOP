@@ -2,12 +2,12 @@ package com.nithishkumar.seatplop.Model;
 
 public class Users {
 
-    String phoneNo,fullName,userName,email,password,date,age,gender;
+    private  String phoneNo,fullName,userName,email,password,date,age,gender,location;
 
     public Users() {
     }
 
-    public Users(String phoneNo, String fullName, String userName, String email, String password, String date, String age, String gender) {
+    public Users(String phoneNo, String fullName, String userName, String email, String password, String date, String age, String gender, String location) {
         this.phoneNo = phoneNo;
         this.fullName = fullName;
         this.userName = userName;
@@ -16,6 +16,7 @@ public class Users {
         this.date = date;
         this.age = age;
         this.gender = gender;
+        this.location = location;
     }
 
     public String getPhoneNo() {
@@ -80,5 +81,13 @@ public class Users {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }

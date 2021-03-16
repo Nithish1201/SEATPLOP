@@ -2,7 +2,7 @@ package com.nithishkumar.seatplop.Model;
 
 public class Stadiums {
 
-    String name, location, totalNoOfSeats, typeOfSport, surfaceArea, rating,state;
+    private  String name, location, totalNoOfSeats, typeOfSport, surfaceArea, rating, state;
 
     public Stadiums() {
     }
