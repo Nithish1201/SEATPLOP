@@ -2,7 +2,7 @@ package com.nithishkumar.seatplop.Model;
 
 public class Users {
 
-    private  String phoneNo,fullName,userName,email,password,date,age,gender,location;
+    private String phoneNo, fullName, userName, email, password, date, age, gender, location;
 
     public Users() {
     }

@@ -16,19 +16,15 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.nithishkumar.seatplop.Adapters.EventAdapter;
 import com.nithishkumar.seatplop.Model.Events;
-import com.nithishkumar.seatplop.Model.Stadiums;
 import com.nithishkumar.seatplop.Model.Users;
 import com.nithishkumar.seatplop.R;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 
 public class HomeFragment extends Fragment {

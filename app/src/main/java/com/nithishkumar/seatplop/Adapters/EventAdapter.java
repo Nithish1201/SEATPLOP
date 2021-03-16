@@ -59,6 +59,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.Viewholder> 
 
         holder.totalTime.setText(events.getTime());
 
+        /**
         FirebaseDatabase.getInstance().getReference().child("Stadiums").child(events.getStadium()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

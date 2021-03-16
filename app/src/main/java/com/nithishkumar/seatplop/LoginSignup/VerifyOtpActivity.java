@@ -20,10 +20,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.nithishkumar.seatplop.MainActivity;
-import com.nithishkumar.seatplop.Model.Users;
 import com.nithishkumar.seatplop.R;
 
 import java.util.concurrent.TimeUnit;
@@ -35,7 +32,7 @@ public class VerifyOtpActivity extends AppCompatActivity {
     String codeBySystem;
     TextView topText;
 
-    String phoneNo,fullName,userName,email,password,date,age,gender,whatToDo,location;
+    String phoneNo,fullName,userName,email,password,date,age,gender,whatToDo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +51,6 @@ public class VerifyOtpActivity extends AppCompatActivity {
          date = getIntent().getStringExtra("date");
          age = getIntent().getStringExtra("age");
          gender = getIntent().getStringExtra("gender");
-         location = "Tamilnadu";
 
          whatToDo = getIntent().getStringExtra("whatToDo");
 
@@ -123,7 +119,17 @@ public class VerifyOtpActivity extends AppCompatActivity {
                                 startActivity(intent);
                                 finish();
                             } else {
-                                storeNewUsersData();
+                                Intent intent = new Intent(VerifyOtpActivity.this,LocationSelectionActivity.class);
+                                intent.putExtra("phoneNo",phoneNo);
+                                intent.putExtra("fullname",fullName);
+                                intent.putExtra("username",userName);
+                                intent.putExtra("email",email);
+                                intent.putExtra("password",password);
+                                intent.putExtra("age",age);
+                                intent.putExtra("date",date);
+                                intent.putExtra("gender",gender);
+                                startActivity(intent);
+                                finish();
                             }
                             Toast.makeText(VerifyOtpActivity.this, "Verification completed", Toast.LENGTH_SHORT).show();
 
@@ -135,39 +141,6 @@ public class VerifyOtpActivity extends AppCompatActivity {
                         }
                     }
                 });
-    }
-
-    private void storeNewUsersData() {
-
-        /**
-
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("info","createUserWithEmail:success");
-                            Toast.makeText(VerifyOtpActivity.this, "Authentication success.",
-                                    Toast.LENGTH_SHORT).show();
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("info", "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(VerifyOtpActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-         **/
-
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        Users addNewUser = new Users(phoneNo,fullName,userName,email,password,date,age,gender,location);
-        reference.child("Users").child(phoneNo).setValue(addNewUser);
-
-        Intent intent = new Intent(VerifyOtpActivity.this,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        finish();
-
     }
 
     @Override
