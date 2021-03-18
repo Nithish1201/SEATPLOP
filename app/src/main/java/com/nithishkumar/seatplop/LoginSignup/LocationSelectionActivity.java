@@ -124,7 +124,7 @@ public class LocationSelectionActivity extends AppCompatActivity implements Loca
     private void updateData(String location) {
 
         Users addUser = new Users(phoneNo,fullName,userName,email,password,date,age,gender,location);
-        FirebaseDatabase.getInstance().getReference().child("Users").setValue(addUser);
+        FirebaseDatabase.getInstance().getReference().child("Users").child(phoneNo).setValue(addUser);
 
         Intent intent = new Intent(LocationSelectionActivity.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
