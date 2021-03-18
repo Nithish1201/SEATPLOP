@@ -23,20 +23,42 @@
 
         </ImageView>
 
+
         <TextView
+            android:id="@+id/login_type_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="70dp"
             android:fontFamily="@font/muli_black"
-            android:text="@string/login"
+            android:text="LOGIN"
             android:textAllCaps="true"
             android:textColor="@color/black"
             android:textSize="40sp" />
 
+        <ImageView
+            android:id="@+id/user_pic"
+            android:layout_width="150dp"
+            android:onClick="choose_admin"
+            android:layout_height="150dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/login_user"
+            android:layout_marginTop="40dp"
+            android:padding="10dp"/>
+
+        <ImageView
+            android:id="@+id/admin_pic"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentEnd="true"
+            android:onClick="choose_user"
+            android:src="@drawable/admin"
+            android:layout_marginTop="50dp"
+            android:padding="10dp"/>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="180dp">
+            android:layout_marginTop="220dp">
 
             <com.hbb20.CountryCodePicker
                 android:id="@+id/login_country_code_picker"
@@ -143,6 +165,7 @@
                 android:layout_marginTop="20dp"/>
 
             <Button
+                android:id="@+id/create_account_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/login_button"

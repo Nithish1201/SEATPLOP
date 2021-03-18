@@ -12,9 +12,13 @@ import android.provider.Settings;
 import android.util.Log;
 import android.util.Pair;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -31,11 +35,20 @@ import com.nithishkumar.seatplop.R;
 
 public class LoginActivity extends AppCompatActivity {
 
+    TextView loginType;
+    ImageView adminPic;
+    ImageView UserPic;
+    Boolean isAdmin;
+
+    Animation fadeanim;
+    Animation fadeanimrev;
+
     Button forgotPassword;
     TextInputLayout phoneNo, password;
     CountryCodePicker loginCountryCodePicker;
     ProgressBar progressBar;
     CheckBox rememberMe;
+    Button createAccountBtn;
 
     FirebaseAuth Auth;
     FirebaseUser currentUser;
@@ -45,18 +58,76 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        adminPic = findViewById(R.id.admin_pic);
+        loginType = findViewById(R.id.login_type_txt);
+        UserPic = findViewById(R.id.user_pic);
+        isAdmin = false;
+
+        fadeanim = AnimationUtils.loadAnimation(this,R.anim.fading_anim);
+        fadeanimrev = AnimationUtils.loadAnimation(this,R.anim.fade_anim_rev);
+
         forgotPassword = findViewById(R.id.forgot_password);
         phoneNo = findViewById(R.id.login_phone_number);
         password = findViewById(R.id.login_password);
         progressBar = findViewById(R.id.login_progress_bar);
         loginCountryCodePicker = findViewById(R.id.login_country_code_picker);
         rememberMe = findViewById(R.id.remember_me);
+        createAccountBtn = findViewById(R.id.create_account_btn);
 
         Auth = FirebaseAuth.getInstance();
         currentUser = Auth.getCurrentUser();
 
         progressBar.setVisibility(View.INVISIBLE);
 
+        adminPic.setVisibility(View.INVISIBLE);
+        UserPic.setVisibility(View.VISIBLE);
+        loginType.setText("LOGIN");
+        createAccountBtn.setVisibility(View.VISIBLE);
+        forgotPassword.setVisibility(View.VISIBLE);
+        rememberMe.setVisibility(View.VISIBLE);
+
+    }
+
+    public void choose_user(View view) {
+        UserPic.setAnimation(fadeanim);
+        adminPic.setAnimation(fadeanimrev);
+        loginType.setText("LOGIN");
+        loginType.setAnimation(fadeanimrev);
+
+        rememberMe.setAnimation(fadeanim);
+        forgotPassword.setAnimation(fadeanim);
+        createAccountBtn.setAnimation(fadeanim);
+
+        createAccountBtn.setVisibility(View.VISIBLE);
+        forgotPassword.setVisibility(View.VISIBLE);
+        rememberMe.setVisibility(View.VISIBLE);
+
+        adminPic.setVisibility(View.GONE);
+        UserPic.setVisibility(View.VISIBLE);
+
+        isAdmin = false;
+    }
+
+    public void choose_admin(View view) {
+
+
+        UserPic.setAnimation(fadeanimrev);
+        adminPic.setAnimation(fadeanim);
+        loginType.setText("ADMIN\nLOGIN");
+        loginType.setAnimation(fadeanim);
+
+        rememberMe.setAnimation(fadeanimrev);
+        forgotPassword.setAnimation(fadeanimrev);
+        createAccountBtn.setAnimation(fadeanimrev);
+
+        createAccountBtn.setVisibility(View.INVISIBLE);
+        forgotPassword.setVisibility(View.INVISIBLE);
+        rememberMe.setVisibility(View.INVISIBLE);
+
+        adminPic.setVisibility(View.VISIBLE);
+        UserPic.setVisibility(View.GONE);
+
+        isAdmin = true;
     }
 
     public void VerifyOtp(View view) {
@@ -84,47 +155,91 @@ public class LoginActivity extends AppCompatActivity {
 
         String completePhoneNo = "+" + loginCountryCodePicker.getFullNumber() + phoneNum;
 
-        //Database
-        Query checkUser = FirebaseDatabase.getInstance().getReference("Users").orderByChild("phoneNo").equalTo(completePhoneNo);
-        String finalPhoneNum = phoneNum;
-        checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    phoneNo.setError(null);
-                    phoneNo.setErrorEnabled(false);
+        if (!isAdmin){
+            //Database
+            Query checkUser = FirebaseDatabase.getInstance().getReference("Users").orderByChild("phoneNo").equalTo(completePhoneNo);
+            String finalPhoneNum = phoneNum;
+            checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        phoneNo.setError(null);
+                        phoneNo.setErrorEnabled(false);
 
-                    String systemPassword = snapshot.child(completePhoneNo).child("password").getValue(String.class);
-                    if (systemPassword.equals(passWord)) {
-                        password.setError(null);
-                        password.setErrorEnabled(false);
+                        String systemPassword = snapshot.child(completePhoneNo).child("password").getValue(String.class);
+                        if (systemPassword.equals(passWord)) {
+                            password.setError(null);
+                            password.setErrorEnabled(false);
 
-                        Intent intent = new Intent(LoginActivity.this,VerifyOtpActivity.class);
-                        intent.putExtra("phonenumber", completePhoneNo);
-                        intent.putExtra("whatToDo", "loginUser");
-                        startActivity(intent);
+                            Intent intent = new Intent(LoginActivity.this,VerifyOtpActivity.class);
+                            intent.putExtra("phonenumber", completePhoneNo);
+                            intent.putExtra("whatToDo", "loginUser");
+                            startActivity(intent);
 
-                        Toast.makeText(LoginActivity.this, "Both are correct", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Both are correct", Toast.LENGTH_SHORT).show();
 
+                        } else {
+                            progressBar.setVisibility(View.GONE);
+                            Toast.makeText(LoginActivity.this, "password does not match!", Toast.LENGTH_SHORT).show();
+                        }
                     } else {
                         progressBar.setVisibility(View.GONE);
-                        Toast.makeText(LoginActivity.this, "password does not match!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "No such User Exist!", Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    progressBar.setVisibility(View.GONE);
-                    Toast.makeText(LoginActivity.this, "No such User Exist!", Toast.LENGTH_SHORT).show();
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                progressBar.setVisibility(View.GONE);
-                Log.i("info", error.getMessage());
-                Log.i("info", error.getDetails());
-                Toast.makeText(LoginActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    progressBar.setVisibility(View.GONE);
+                    Log.i("info", error.getMessage());
+                    Log.i("info", error.getDetails());
+                    Toast.makeText(LoginActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
 
-            }
-        });
+                }
+            });
+        }else {
+            //Database
+            Query checkAdmin = FirebaseDatabase.getInstance().getReference("Admins").orderByChild("phoneNo").equalTo(completePhoneNo);
+            String finalPhoneNum = phoneNum;
+            checkAdmin.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        phoneNo.setError(null);
+                        phoneNo.setErrorEnabled(false);
+
+                        String systemPassword = snapshot.child(completePhoneNo).child("password").getValue(String.class);
+                        if (systemPassword.equals(passWord)) {
+                            password.setError(null);
+                            password.setErrorEnabled(false);
+
+                            Intent intent = new Intent(LoginActivity.this,VerifyOtpActivity.class);
+                            intent.putExtra("phonenumber", completePhoneNo);
+                            intent.putExtra("whatToDo", "loginAdmin");
+                            startActivity(intent);
+
+                            Toast.makeText(LoginActivity.this, "Both are correct", Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            progressBar.setVisibility(View.GONE);
+                            Toast.makeText(LoginActivity.this, "password does not match!", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        progressBar.setVisibility(View.GONE);
+                        Toast.makeText(LoginActivity.this, "No such User Exist!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    progressBar.setVisibility(View.GONE);
+                    Log.i("info", error.getMessage());
+                    Log.i("info", error.getDetails());
+                    Toast.makeText(LoginActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }
 
     }
 

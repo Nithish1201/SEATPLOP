@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.nithishkumar.seatplop.LoginSignup.Admin.AdminCodeActivity;
 import com.nithishkumar.seatplop.MainActivity;
 import com.nithishkumar.seatplop.R;
 
@@ -118,7 +119,12 @@ public class VerifyOtpActivity extends AppCompatActivity {
                                 Intent intent = new Intent(VerifyOtpActivity.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
                                 finish();
-                            } else {
+                            } else if (whatToDo != null && whatToDo.equals("loginAdmin")){
+                                Intent intent = new Intent(VerifyOtpActivity.this, AdminCodeActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                intent.putExtra("phoneNo",phoneNo);
+                                startActivity(intent);
+                                finish();
+                            }else {
                                 Intent intent = new Intent(VerifyOtpActivity.this,LocationSelectionActivity.class);
                                 intent.putExtra("phoneNo",phoneNo);
                                 intent.putExtra("fullname",fullName);
