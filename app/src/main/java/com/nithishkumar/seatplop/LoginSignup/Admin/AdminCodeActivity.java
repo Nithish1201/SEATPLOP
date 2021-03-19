@@ -63,6 +63,7 @@ public class AdminCodeActivity extends AppCompatActivity {
             Toast.makeText(this, "Admin access approved!", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(AdminCodeActivity.this,AdminDashboardActivity.class);
             startActivity(intent);
+            finish();
         }else{
             //admin code not correct
             Toast.makeText(this, "Admin access not approved!", Toast.LENGTH_SHORT).show();
