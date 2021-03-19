@@ -122,6 +122,7 @@ public class VerifyOtpActivity extends AppCompatActivity {
                             } else if (whatToDo != null && whatToDo.equals("loginAdmin")){
                                 Intent intent = new Intent(VerifyOtpActivity.this, AdminCodeActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 intent.putExtra("phoneNo",phoneNo);
+                                intent.putExtra("sysAdminCode",getIntent().getStringExtra("sysAdminCode"));
                                 startActivity(intent);
                                 finish();
                             }else {

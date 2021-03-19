@@ -163,6 +163,7 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if (snapshot.exists()) {
+                        Log.i("snapshit",snapshot.getValue().toString());
                         phoneNo.setError(null);
                         phoneNo.setErrorEnabled(false);
 
@@ -176,7 +177,7 @@ public class LoginActivity extends AppCompatActivity {
                             intent.putExtra("whatToDo", "loginUser");
                             startActivity(intent);
 
-                            Toast.makeText(LoginActivity.this, "Both are correct", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Credentials Approved...", Toast.LENGTH_SHORT).show();
 
                         } else {
                             progressBar.setVisibility(View.GONE);
@@ -213,12 +214,15 @@ public class LoginActivity extends AppCompatActivity {
                             password.setError(null);
                             password.setErrorEnabled(false);
 
+                            String sysAdminCode = snapshot.child(completePhoneNo).child("adminCode").getValue(String.class);
+
                             Intent intent = new Intent(LoginActivity.this,VerifyOtpActivity.class);
                             intent.putExtra("phonenumber", completePhoneNo);
                             intent.putExtra("whatToDo", "loginAdmin");
+                            intent.putExtra("sysAdminCode", sysAdminCode);
                             startActivity(intent);
 
-                            Toast.makeText(LoginActivity.this, "Both are correct", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Credentials Approved...", Toast.LENGTH_SHORT).show();
 
                         } else {
                             progressBar.setVisibility(View.GONE);
@@ -226,7 +230,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     } else {
                         progressBar.setVisibility(View.GONE);
-                        Toast.makeText(LoginActivity.this, "No such User Exist!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "No Admin privileges are given!", Toast.LENGTH_SHORT).show();
                     }
                 }
 

@@ -12,8 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SEATPLOP">
-        <activity android:name=".LoginSignup.Admin.AdminCodeActivity"></activity>
-        <activity android:name=".LoginSignup.LocationSelectionActivity"></activity>
+        <activity android:name=".LoginSignup.Admin.AdminDashboardActivity"></activity>
+        <activity android:name=".LoginSignup.Admin.AdminCodeActivity" />
+        <activity android:name=".LoginSignup.LocationSelectionActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginSignup.ForgotPasswordMessageActivity" />
         <activity android:name=".LoginSignup.SetNewPasswordActivity" />

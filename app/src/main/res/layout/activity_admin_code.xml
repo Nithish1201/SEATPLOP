@@ -1,9 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
     android:layout_height="match_parent"
     tools:context=".LoginSignup.Admin.AdminCodeActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/login_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@drawable/ic_general_back_icon"/>
+
+        <TextView
+            android:id="@+id/admin_code_type_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/muli_black"
+            android:text="ADMIN\n\t\t\t\t\t\t\t\t\tCODE"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="40sp" />
+
+
+        <ImageView
+            android:id="@+id/admin_pic"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/admin"
+            android:layout_marginTop="50dp"
+            android:padding="10dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="220dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/admin_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Admin Code"
+                app:startIconDrawable="@drawable/ic_password_lock_icon"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:startIconTint="@color/black"
+                app:hintTextColor="@color/black"
+                android:textColorHint="@color/black"
+                app:endIconMode="password_toggle"
+                android:padding="10dp"
+                app:endIconTint="@color/black"
+                app:boxStrokeWidthFocused="2dp"
+                app:boxStrokeColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:id="@+id/login_text"
+                    android:layout_height="match_parent"
+                    android:inputType="textPassword"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <Button
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/verify_code_btn"
+                android:text="VERIFY CODE"
+                android:onClick="verifyCode"
+                android:layout_below="@id/admin_code"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/button_background_black"
+                android:textColor="@color/white"
+                android:layout_marginTop="30dp"/>
+
+            <Button
+                android:id="@+id/jump_to_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/verify_code_btn"
+                android:text="LOGIN"
+                android:onClick="callLoginScreen"
+                android:background="#00000000"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ProgressBar
+                    android:id="@+id/admin_code_progress_bar"
+                    android:layout_width="30dp"
+                    android:background="@drawable/white_circle"
+                    android:layout_height="30dp"
+                    android:elevation="10dp"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
