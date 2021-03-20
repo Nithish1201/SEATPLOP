@@ -20,7 +20,6 @@ public class AdminDashboardActivity extends AppCompatActivity {
     public void AddStadium(View view) {
         Intent intent = new Intent(AdminDashboardActivity.this,AddStadiumActivity.class);
         startActivity(intent);
-        finish();
     }
 
     public void ScheduleEvent(View view) {

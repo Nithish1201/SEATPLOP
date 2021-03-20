@@ -1,9 +1,345 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginSignup.Admin.ScheduleEventActivity">
+    tools:context=".LoginSignup.Admin.ScheduleEventActivity"
+    android:background="@color/colorPrimary"
+    android:padding="15dp"
+    android:transitionName="transition_login">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/add_event_back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:src="@drawable/ic_general_back_icon"
+                android:transitionName="transition_back_arrow_btn"/>
+
+            <TextView
+                android:id="@+id/add_event_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SCHEDULE\nEvent"
+                android:textColor="@color/black"
+                android:textSize="40sp"
+                android:fontFamily="@font/muli_black"
+                android:textAllCaps="true"
+                android:layout_marginTop="20dp"
+                android:transitionName="transition_title_text"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="40dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/event_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name"
+                    app:startIconTint="@color/black"
+                    app:hintTextColor="@color/black"
+                    android:textColorHint="@color/light_black"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/black"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:boxStrokeColor="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="text"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/event_from"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="From"
+                        app:startIconDrawable="@drawable/ic_date_range_icon"
+                        app:startIconTint="@color/black"
+                        app:hintTextColor="@color/black"
+                        android:textColorHint="@color/light_black"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:endIconMode="clear_text"
+                        app:endIconTint="@color/black"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:boxStrokeColor="@color/black">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:inputType="date"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/event_to"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="To"
+                        app:startIconDrawable="@drawable/ic_date_range_icon"
+                        app:startIconTint="@color/black"
+                        app:hintTextColor="@color/black"
+                        android:textColorHint="@color/light_black"
+                        android:layout_marginStart="20dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:endIconMode="clear_text"
+                        app:endIconTint="@color/black"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:boxStrokeColor="@color/black">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:inputType="date"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/stadium_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Stadium ID"
+                        app:startIconTint="@color/black"
+                        app:hintTextColor="@color/black"
+                        android:textColorHint="@color/light_black"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:endIconMode="clear_text"
+                        app:endIconTint="@color/black"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:boxStrokeColor="@color/black">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:inputType="text"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/event_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Time"
+                        app:startIconTint="@color/black"
+                        app:hintTextColor="@color/black"
+                        android:textColorHint="@color/light_black"
+                        app:startIconDrawable="@drawable/ic_time_icon"
+                        android:layout_marginStart="20dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:endIconMode="clear_text"
+                        app:endIconTint="@color/black"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:boxStrokeColor="@color/black">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:inputType="time"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/event_session"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Session"
+                        app:startIconTint="@color/black"
+                        app:hintTextColor="@color/black"
+                        android:textColorHint="@color/light_black"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:endIconMode="clear_text"
+                        app:endIconTint="@color/black"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:boxStrokeColor="@color/black">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:inputType="text"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/booking_start_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Book From.."
+                        app:startIconTint="@color/black"
+                        app:hintTextColor="@color/black"
+                        android:textColorHint="@color/light_black"
+                        app:startIconDrawable="@drawable/ic_date_range_icon"
+                        android:layout_marginStart="20dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:endIconMode="clear_text"
+                        app:endIconTint="@color/black"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:boxStrokeColor="@color/black">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:inputType="date"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/event_contact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Event Contact"
+                        app:startIconDrawable="@drawable/ic_phone_icon"
+                        app:startIconTint="@color/black"
+                        app:hintTextColor="@color/black"
+                        android:textColorHint="@color/light_black"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:endIconMode="clear_text"
+                        app:endIconTint="@color/black"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:boxStrokeColor="@color/black">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="200dp"
+                            android:layout_height="match_parent"
+                            android:inputType="phone"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/booked_seats"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Booked Seats ??"
+                        android:layout_marginStart="20dp"
+                        app:startIconDrawable="@drawable/ic_event_seat_icon"
+                        app:startIconTint="@color/black"
+                        app:hintTextColor="@color/black"
+                        android:textColorHint="@color/light_black"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:endIconMode="clear_text"
+                        app:endIconTint="@color/black"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:boxStrokeColor="@color/black">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="140dp"
+                            android:layout_height="match_parent"
+                            android:inputType="number"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ticket_starting_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Ticket Starting Price.."
+                    app:startIconTint="@color/black"
+                    app:hintTextColor="@color/black"
+                    android:textColorHint="@color/light_black"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/black"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:boxStrokeColor="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="180dp"
+                        android:layout_height="match_parent"
+                        android:inputType="number"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/add_event_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SCHEDULE EVENT"
+                android:onClick="AddEventToDatabase"
+                android:background="@drawable/button_background_black"
+                android:layout_marginTop="40dp"
+                android:textColor="@color/white"
+                android:elevation="5dp"
+                android:transitionName="transition_next_btn"/>
+
+            <Button
+                android:id="@+id/dashboard_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DASHBOARD"
+                android:onClick="GoToDashboard"
+                android:background="#00000000"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:elevation="5dp"
+                android:fontFamily="@font/muli"
+                android:transitionName="transition_login_btn"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:id="@+id/schedule_event_progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/white_circle"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

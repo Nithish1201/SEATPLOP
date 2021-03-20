@@ -81,16 +81,7 @@ public class AddStadiumActivity extends AppCompatActivity {
 
         progressBar.setVisibility(View.VISIBLE);
 
-        stadiumName_ = stadiumName.getEditText().getText().toString().trim();
-        state_ = state.getEditText().getText().toString().trim();
-        city_ = city.getEditText().getText().toString().trim();
-        id_ = id.getEditText().getText().toString().trim();
-        capacity_ = capacity.getEditText().getText().toString().trim();
-        typeOfSport_ = typeOfSport.getEditText().getText().toString().trim();
-        surfaceArea_ = surfaceArea.getEditText().getText().toString().trim();
-        stadiumContact_ = stadiumContact.getEditText().getText().toString().trim();
-        rating_ = rating.getEditText().getText().toString().trim();
-        establishmentYear_ = establishmentYear.getEditText().getText().toString().trim();
+        getInputs();
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Stadiums");
         Stadiums addStadium = new Stadiums(stadiumName_ , state_ , city_ , id_ , capacity_ , typeOfSport_ , surfaceArea_ , stadiumContact_ , rating_ , establishmentYear_);
@@ -112,6 +103,19 @@ public class AddStadiumActivity extends AppCompatActivity {
 
         progressBar.setVisibility(View.INVISIBLE);
 
+    }
+
+    private void getInputs() {
+        stadiumName_ = stadiumName.getEditText().getText().toString().trim();
+        state_ = state.getEditText().getText().toString().trim();
+        city_ = city.getEditText().getText().toString().trim();
+        id_ = id.getEditText().getText().toString().trim();
+        capacity_ = capacity.getEditText().getText().toString().trim();
+        typeOfSport_ = typeOfSport.getEditText().getText().toString().trim();
+        surfaceArea_ = surfaceArea.getEditText().getText().toString().trim();
+        stadiumContact_ = stadiumContact.getEditText().getText().toString().trim();
+        rating_ = rating.getEditText().getText().toString().trim();
+        establishmentYear_ = establishmentYear.getEditText().getText().toString().trim();
     }
 
     private void showCustomDialog() {
