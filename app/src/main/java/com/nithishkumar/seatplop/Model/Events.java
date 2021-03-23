@@ -2,12 +2,12 @@ package com.nithishkumar.seatplop.Model;
 
 public class Events {
 
-    String eventName_, from_, to_, stadiumId_, time_, session_, bookFrom_, eventContact_, bookedSeats_, ticketStartingPrice_;
+    String eventName_, from_, to_, stadiumId_, time_, session_, bookFrom_, eventContact_, bookedSeats_, ticketStartingPrice_, eventId_;
 
     public Events() {
     }
 
-    public Events(String eventName_, String from_, String to_, String stadiumId_, String time_, String session_, String bookFrom_, String eventContact_, String bookedSeats_, String ticketStartingPrice_) {
+    public Events(String eventName_, String from_, String to_, String stadiumId_, String time_, String session_, String bookFrom_, String eventContact_, String bookedSeats_, String ticketStartingPrice_, String eventId_) {
         this.eventName_ = eventName_;
         this.from_ = from_;
         this.to_ = to_;
@@ -18,6 +18,7 @@ public class Events {
         this.eventContact_ = eventContact_;
         this.bookedSeats_ = bookedSeats_;
         this.ticketStartingPrice_ = ticketStartingPrice_;
+        this.eventId_ = eventId_;
     }
 
     public String getEventName_() {
@@ -98,5 +99,13 @@ public class Events {
 
     public void setTicketStartingPrice_(String ticketStartingPrice_) {
         this.ticketStartingPrice_ = ticketStartingPrice_;
+    }
+
+    public String getEventId_() {
+        return eventId_;
+    }
+
+    public void setEventId_(String eventId_) {
+        this.eventId_ = eventId_;
     }
 }

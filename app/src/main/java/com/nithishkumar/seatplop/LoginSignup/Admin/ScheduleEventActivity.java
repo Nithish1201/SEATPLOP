@@ -15,8 +15,11 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.nithishkumar.seatplop.LoginSignup.StartActivity;
 import com.nithishkumar.seatplop.Model.CheckInternet;
 import com.nithishkumar.seatplop.Model.Events;
@@ -84,13 +87,15 @@ public class ScheduleEventActivity extends AppCompatActivity {
         getInputs();
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Events");
-        Events addEvents = new Events(eventName_, from_, to_, stadiumId_, time_, session_, bookFrom_, eventContact_, bookedSeats_, ticketStartingPrice_);
-        reference.push().setValue(addEvents).addOnCompleteListener(new OnCompleteListener<Void>() {
+        String referenceId = reference.push().getKey();
+        Events addEvents = new Events(eventName_, from_, to_, stadiumId_, time_, session_, bookFrom_, eventContact_, bookedSeats_, ticketStartingPrice_, referenceId);
+        reference.child(referenceId).setValue(addEvents).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
                     Toast.makeText(ScheduleEventActivity.this, "Database added successfully", Toast.LENGTH_SHORT).show();
                     //add events to stadiums
+                    FirebaseDatabase.getInstance().getReference("Stadiums").child(stadiumId_).child("events_").child(referenceId).setValue(true);
                     progressBar.setVisibility(View.INVISIBLE);
                     Intent intent = new Intent(ScheduleEventActivity.this,AdminDashboardActivity.class);
                     startActivity(intent);
@@ -180,9 +185,6 @@ public class ScheduleEventActivity extends AppCompatActivity {
         if (val.isEmpty()) {
             time.setError("Field cannot be empty");
             return false;
-        } else if (!(val.length() == 2)) {
-            time.setError("Enter a valid time!!");
-            return false;
         } else {
             time.setError(null);
             time.setEnabled(false);
@@ -221,6 +223,8 @@ public class ScheduleEventActivity extends AppCompatActivity {
         sessions.add("Late Night");
         sessions.add("Mid Night");
         sessions.add("Early Morning");
+        sessions.add("Whole Day");
+        sessions.add("Whole Night");
 
     }
 

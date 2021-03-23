@@ -3,6 +3,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="amber_yellow">#Ffc400</color>
+    <color name="blaze_orange">#ff6200</color>
+    <color name="red">#ff0000</color>
+    <color name="green">#13ff00</color>
+    <color name="purple">#Bb00ff</color>
     <color name="colorPrimary">#03C6C7</color>
     <color name="light_black">#292929</color>
     <color name="light_white">#c2bdbf</color>

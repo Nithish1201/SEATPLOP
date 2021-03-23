@@ -179,6 +179,7 @@ public class LocationSelectionActivity extends AppCompatActivity implements Loca
     public void locateMe(View view) {
 
         updateData(locateUserLocation);
+        Toast.makeText(this, locateUserLocation, Toast.LENGTH_SHORT).show();
 
     }
 

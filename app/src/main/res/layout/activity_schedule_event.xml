@@ -165,7 +165,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="170dp"
                             android:layout_height="match_parent"
-                            android:inputType="time"/>
+                            android:inputType="text"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
 
