@@ -42,4 +42,12 @@ public class AdminDashboardActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(AdminDashboardActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

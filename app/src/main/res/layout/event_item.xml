@@ -24,7 +24,7 @@
 
 
             <ImageView
-                android:id="@+id/type_of_game"
+                android:id="@+id/type_of_game_item"
                 android:layout_width="80dp"
                 android:layout_height="45dp"
                 android:layout_below="@+id/lay_event_name"
@@ -46,7 +46,7 @@
                     android:src="@drawable/match"/>
 
                 <TextView
-                    android:id="@+id/event_name"
+                    android:id="@+id/event_name_item"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:autoSizeMaxTextSize="40sp"
@@ -80,7 +80,7 @@
                         android:src="@drawable/calendar"/>
 
                     <TextView
-                        android:id="@+id/from"
+                        android:id="@+id/from_date_item"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -106,7 +106,7 @@
                         android:textSize="15sp" />
 
                     <TextView
-                        android:id="@+id/to"
+                        android:id="@+id/to_date_item"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -135,7 +135,7 @@
                         android:src="@drawable/clock"/>
 
                     <TextView
-                        android:id="@+id/total_time"
+                        android:id="@+id/total_time_item"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/muli_black"
@@ -166,7 +166,7 @@
                     android:src="@drawable/distance"/>
 
                 <TextView
-                    android:id="@+id/stadium_name"
+                    android:id="@+id/stadium_name_item"
                     android:layout_width="wrap_content"
                     android:layout_gravity="center"
                     android:textAlignment="center"

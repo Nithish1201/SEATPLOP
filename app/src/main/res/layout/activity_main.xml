@@ -12,13 +12,6 @@
         android:id="@+id/fragment_container"
         android:layout_above="@id/bottom"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Signout"
-        android:onClick="signOut"
-        android:layout_centerInParent="true"/>
-
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

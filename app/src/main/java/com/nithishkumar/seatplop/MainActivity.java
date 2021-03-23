@@ -1,29 +1,47 @@
 package com.nithishkumar.seatplop;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.view.MenuItem;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.nithishkumar.seatplop.LoginSignup.StartActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.nithishkumar.seatplop.Fragments.HomeFragment;
+import com.nithishkumar.seatplop.Fragments.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    FirebaseAuth Auth;
+    private BottomNavigationView bottomNavigationView;
+    private Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Auth = FirebaseAuth.getInstance();
-    }
-    public void signOut(View view) {
-        Auth.signOut();
-        Intent intent = new Intent(MainActivity.this, StartActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        finish();
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()){
+                    case R.id.nav_home:
+                        fragment = new HomeFragment();
+                        break;
+                    case R.id.nav_profile:
+                        fragment = new ProfileFragment();
+                        break;
+                }
+                if (fragment != null){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , fragment).commit();
+                }
+                return true;
+            }
+        });
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , new HomeFragment()).commit();
     }
 }
