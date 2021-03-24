@@ -3,24 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/lightWhite">
+    android:background="@color/white">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="180dp"
+        android:layout_centerVertical="true"
         android:layout_gravity="center"
-        android:background="@color/lightWhite">
+        android:background="@color/white">
+
+
+        <ImageView
+            android:id="@+id/card_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg4_" />
 
 
         <RelativeLayout
-            android:id="@+id/card_background"
+            android:id="@+id/card"
+            android:padding="5dp"
             android:layout_width="match_parent"
-            android:layout_height="190dp"
-            android:layout_centerInParent="true"
-            android:layout_margin="20dp"
-            android:background="@drawable/bg2_"
-            android:padding="5dp">
+            android:layout_height="150dp"
+            android:layout_centerVertical="true">
 
 
             <ImageView
@@ -28,44 +34,41 @@
                 android:layout_width="80dp"
                 android:layout_height="45dp"
                 android:layout_below="@+id/lay_event_name"
-                android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
                 android:src="@drawable/cricket" />
 
             <LinearLayout
                 android:id="@+id/lay_event_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/lay_event_date"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="35dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/match"/>
+                    android:src="@drawable/match" />
 
                 <TextView
                     android:id="@+id/event_name_item"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:autoSizeMaxTextSize="40sp"
-                    android:autoSizeMinTextSize="17sp"
-                    android:autoSizeStepGranularity="2sp"
-                    android:autoSizeTextType="uniform"
-                    android:fontFamily="@font/baloo"
-                    android:paddingStart="3dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/muli_black"
+                    android:gravity="center"
                     android:text="Event name"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="17sp" />
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/lay_event_date"
-                android:layout_width="wrap_content"
+                android:layout_width="240dp"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/lay_stadium_name"
+                android:layout_below="@id/lay_event_name"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -77,18 +80,19 @@
                         android:layout_width="25dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
-                        android:src="@drawable/calendar"/>
+                        android:src="@drawable/calendar" />
 
                     <TextView
                         android:id="@+id/from_date_item"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textAlignment="center"
+                        android:layout_marginLeft="20dp"
                         android:fontFamily="@font/muli"
+                        android:gravity="center"
                         android:padding="2dp"
-                        android:text="26th jan"
+                        android:text="26/01/2021"
+                        android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
@@ -97,11 +101,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textAlignment="center"
                         android:fontFamily="@font/muli"
+                        android:gravity="center"
                         android:padding="2dp"
                         android:text="-"
+                        android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
@@ -110,40 +114,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textAlignment="center"
                         android:fontFamily="@font/muli"
-                        android:padding="2dp"
-                        android:text="29th jan"
-                        android:textColor="@color/black"
-                        android:textSize="15sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/lay_event_time"
-                    android:layout_width="wrap_content"
-                    android:paddingStart="5dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="22dp"
-                        android:layout_gravity="center"
-                        android:foregroundGravity="center"
-                        android:src="@drawable/clock"/>
-
-                    <TextView
-                        android:id="@+id/total_time_item"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/muli_black"
-                        android:layout_gravity="center"
                         android:gravity="center"
-                        android:textAlignment="center"
                         android:padding="2dp"
-                        android:text="28 Hrs"
+                        android:text="29/01/2021"
+                        android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="15sp" />
 
@@ -161,21 +136,21 @@
 
                 <ImageView
                     android:layout_width="35dp"
-                    android:layout_height="45dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/distance"/>
+                    android:src="@drawable/distance" />
 
                 <TextView
                     android:id="@+id/stadium_name_item"
-                    android:layout_width="wrap_content"
+                    android:layout_width="213dp"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:textAlignment="center"
-                    android:gravity="center"
-                    android:layout_height="wrap_content"
                     android:fontFamily="@font/muli_semibold"
-                    android:paddingEnd="5dp"
+                    android:gravity="center"
                     android:paddingStart="5dp"
-                    android:text="jawaharlal stadium"
+                    android:paddingEnd="5dp"
+                    android:text="jawaharlal stadiumdfghfgghghf"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -185,7 +160,7 @@
                 android:id="@+id/card_btn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#00000000"/>
+                android:background="#00000000" />
 
         </RelativeLayout>
 

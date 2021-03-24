@@ -14,28 +14,27 @@
       android:elevation="30dp"
       android:layout_height="?actionBarSize">
 
-    <ImageView
-      android:id="@+id/back_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-      android:src="@drawable/ic_general_back_icon"
-      android:layout_centerVertical="true"
-      android:padding="5dp"/>
+        <ImageView
+            android:id="@+id/back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_general_back_icon"
+            android:layout_centerVertical="true"
+            android:padding="5dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-      android:text="Full NAME"
-      android:textAllCaps="true"
-      android:layout_toEndOf="@id/back_icon"
-      android:layout_centerVertical="true"
-      android:textAlignment="center"
-      android:gravity="center"
-      android:textSize="25sp"
-      android:fontFamily="@font/baloo"
-      android:textColor="@color/light_black"
-      android:padding="5dp"/>
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Full NAME"
+            android:textAllCaps="true"
+            android:layout_toEndOf="@id/back_icon"
+            android:layout_centerVertical="true"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:fontFamily="@font/baloo"
+            android:textColor="@color/light_black"
+            android:padding="5dp"/>
 
 
   </RelativeLayout>
