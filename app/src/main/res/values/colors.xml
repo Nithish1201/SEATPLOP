@@ -8,6 +8,7 @@
     <color name="green">#13ff00</color>
     <color name="purple">#Bb00ff</color>
     <color name="colorPrimary">#03C6C7</color>
+    <color name="colorPrimaryLight">#81e3e3</color>
     <color name="light_black">#292929</color>
     <color name="light_white">#c2bdbf</color>
     <color name="lightWhite">#f2f5f8</color>

@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SEATPLOP">
-        <activity android:name=".LoginSignup.Admin.VerifyStadiumIdActivity"></activity>
+        <activity android:name=".LoginSignup.EventActivity"></activity>
+        <activity android:name=".LoginSignup.Admin.VerifyStadiumIdActivity" />
         <activity android:name=".LoginSignup.Admin.EditAdminDetalisActivity" />
         <activity android:name=".LoginSignup.Admin.ScheduleEventActivity" />
         <activity android:name=".LoginSignup.Admin.AddStadiumActivity" />

@@ -1,7 +1,7 @@
 package com.nithishkumar.seatplop.Adapters;
 
 import android.content.Context;
-import android.util.Log;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +17,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.nithishkumar.seatplop.LoginSignup.EventActivity;
 import com.nithishkumar.seatplop.Model.Events;
 import com.nithishkumar.seatplop.Model.Stadiums;
 import com.nithishkumar.seatplop.R;
@@ -108,32 +108,37 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.Viewholder> 
         }
 
         final int min = 1;
-        final int max = 5;
+        final int max = 4;
         final int random = new Random().nextInt((max - min) + 1) + min;
 
         switch (random){
 
             case 1:
-                holder.cardBackground.setImageResource(R.drawable.bg1_);
-                break;
-
-            case 2:
                 holder.cardBackground.setImageResource(R.drawable.bg2_);
                 break;
 
-            case 3:
+            case 2:
                 holder.cardBackground.setImageResource(R.drawable.bg3_);
                 break;
 
-            case 4:
+            case 3:
                 holder.cardBackground.setImageResource(R.drawable.bg4_);
                 break;
 
-            case 5:
+            case 4:
                 holder.cardBackground.setImageResource(R.drawable.bg5_);
                 break;
 
         }
+
+        holder.cardBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, EventActivity.class);
+                intent.putExtra("eventId",events.getEventId_());
+                mContext.startActivity(intent);
+            }
+        });
 
     }
 

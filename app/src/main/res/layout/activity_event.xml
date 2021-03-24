@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginSignup.EventActivity">
+
+    <RelativeLayout
+        android:id="@+id/image_bg"
+        android:layout_width="match_parent"
+        android:background="@drawable/gradient_app_bar"
+        android:layout_height="300dp">
+
+
+        <ImageView
+            android:id="@+id/event_image"
+            android:src="@drawable/match"
+            android:alpha="0.8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <RelativeLayout
+            android:id="@+id/action_bar_lay"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize">
+
+            <ImageView
+                android:id="@+id/general_back_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_general_back_icon"
+                android:padding="10dp"
+                android:layout_centerVertical="true"/>
+
+            <ImageView
+                android:id="@+id/info_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_info_icon"
+                android:layout_alignParentEnd="true"
+                android:padding="10dp"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/image_bg"
+        android:layout_above="@id/below_btn_bar">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:padding="5dp"
+                    android:id="@+id/event_name_lay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/event_name_image"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/event"/>
+
+                    <TextView
+                        android:id="@+id/event_name_event"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:text="EVENT NAME"
+                        android:layout_centerVertical="true"
+                        android:padding="5dp"
+                        android:layout_toEndOf="@id/event_name_image"
+                        android:fontFamily="@font/baloo"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"/>
+
+                    <ImageView
+                        android:id="@+id/save_image_event"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_toEndOf="@id/event_name_event"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/colorless_save"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/date_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_below="@id/event_name_lay">
+
+                    <ImageView
+                        android:id="@+id/calender_img"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:padding="5dp"
+                        android:src="@drawable/calendar"/>
+
+                    <TextView
+                        android:id="@+id/from_date_event"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/calender_img"
+                        android:text="24/04/2021"
+                        android:layout_centerVertical="true"
+                        android:textSize="20sp"
+                        android:padding="5dp"
+                        android:fontFamily="@font/baloo"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/to_txt_event"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/from_date_event"
+                        android:text=" to"
+                        android:layout_centerVertical="true"
+                        android:textSize="20sp"
+                        android:padding="5dp"
+                        android:fontFamily="@font/baloo"
+                        android:textColor="@color/colorPrimary"/>
+
+                    <TextView
+                        android:id="@+id/to_date_event"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/to_txt_event"
+                        android:text="24/04/2021"
+                        android:layout_centerVertical="true"
+                        android:textSize="20sp"
+                        android:padding="5dp"
+                        android:fontFamily="@font/baloo"
+                        android:textColor="@color/black"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/type_of_sport_lay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_below="@id/date_lay">
+
+                    <ImageView
+                        android:id="@+id/type_of_sport_image_event"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:padding="5dp"
+                        android:src="@drawable/football" />
+
+                    <TextView
+                        android:id="@+id/type_of_sport_txt_event"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:background="@drawable/button_background_black"
+                        android:layout_toEndOf="@id/type_of_sport_image_event"
+                        android:text="Football"
+                        android:layout_centerVertical="true"
+                        android:textSize="20sp"
+                        android:padding="5dp"
+                        android:fontFamily="@font/muli"
+                        android:textColor="@color/light_white"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/session_time_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_below="@id/type_of_sport_lay">
+
+                    <ImageView
+                        android:id="@+id/session_img"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:padding="5dp"
+                        android:src="@drawable/sunrise"/>
+
+                    <TextView
+                        android:id="@+id/session_event"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/session_img"
+                        android:text="Whole Morning"
+                        android:layout_centerVertical="true"
+                        android:textSize="18sp"
+                        android:padding="5dp"
+                        android:fontFamily="@font/baloo"
+                        android:textColor="@color/black"/>
+
+                    <ImageView
+                        android:layout_marginStart="20dp"
+                        android:id="@+id/time_img"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:padding="5dp"
+                        android:layout_toEndOf="@id/session_event"
+                        android:src="@drawable/clock"/>
+
+                    <TextView
+                        android:id="@+id/time_event"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/time_img"
+                        android:text="8 Hrs"
+                        android:layout_centerVertical="true"
+                        android:textSize="18sp"
+                        android:padding="5dp"
+                        android:fontFamily="@font/baloo"
+                        android:textColor="@color/black"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:padding="5dp"
+                    android:id="@+id/stadium_name_event_lay"
+                    android:layout_below="@id/session_time_lay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/stadiuum_name_image"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/stadium"/>
+
+                    <TextView
+                        android:id="@+id/stadium_name_event"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:text="Stadium Name"
+                        android:layout_centerVertical="true"
+                        android:padding="5dp"
+                        android:layout_toEndOf="@id/stadiuum_name_image"
+                        android:fontFamily="@font/baloo"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="23sp"/>
+
+                    <ImageView
+                        android:id="@+id/like_image_event"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_toEndOf="@id/stadium_name_event"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/colorless_heart"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/event_contact_lay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_below="@id/stadium_name_event_lay">
+
+                    <ImageView
+                        android:id="@+id/phone_img"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_phone_icon"/>
+
+                    <TextView
+                        android:id="@+id/event_contact_event"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/phone_img"
+                        android:text="+919360637610"
+                        android:layout_centerVertical="true"
+                        android:textSize="20sp"
+                        android:padding="5dp"
+                        android:fontFamily="@font/muli"
+                        android:textColor="@color/black"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/event_booked_seats_lay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_below="@id/event_contact_lay">
+
+                    <ImageView
+                        android:id="@+id/seat_img"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_event_seat_icon"/>
+
+                    <TextView
+                        android:id="@+id/no_of_seats_left_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/seat_img"
+                        android:text="you have only :"
+                        android:layout_centerVertical="true"
+                        android:textSize="17sp"
+                        android:padding="5dp"
+                        android:fontFamily="@font/muli"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/no_of_seats_left_event"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/no_of_seats_left_txt"
+                        android:text="84"
+                        android:layout_centerVertical="true"
+                        android:textSize="20sp"
+                        android:padding="5dp"
+                        android:fontFamily="@font/muli_black"
+                        android:textColor="@color/colorPrimary"/>
+
+                    <TextView
+                        android:id="@+id/left_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/no_of_seats_left_event"
+                        android:text="left !!"
+                        android:layout_centerVertical="true"
+                        android:textSize="17sp"
+                        android:padding="5dp"
+                        android:fontFamily="@font/muli"
+                        android:textColor="@color/black"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/booking_start_from_lay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:layout_below="@id/event_booked_seats_lay">
+
+                    <ImageView
+                        android:id="@+id/booking_start_from_img"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:padding="5dp"
+                        android:src="@drawable/updated"/>
+
+                    <TextView
+                        android:id="@+id/booking_start_from_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/booking_start_from_img"
+                        android:text="Booking Starts From :"
+                        android:layout_centerVertical="true"
+                        android:textSize="17sp"
+                        android:padding="5dp"
+                        android:fontFamily="@font/muli"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/booking_start_from_event"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/booking_start_from_txt"
+                        android:text="12/05/2021"
+                        android:layout_centerVertical="true"
+                        android:textSize="20sp"
+                        android:padding="5dp"
+                        android:fontFamily="@font/muli_black"
+                        android:textColor="@color/colorPrimary"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/below_btn_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:padding="10dp"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/starting_price_text_event"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Starts from :"
+            android:layout_centerVertical="true"
+            android:textSize="15sp"
+            android:padding="5dp"
+            android:fontFamily="@font/muli"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/starting_price_event"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rs.300"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/starting_price_text_event"
+            android:textSize="18sp"
+            android:padding="5dp"
+            android:fontFamily="@font/muli_black"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:id="@+id/book_ticket_btn_event"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/black_circle"
+            android:onClick="BookTicketBtn"
+            android:text="BOOK TICKET"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/white"
+            android:fontFamily="@font/muli_extrabold"
+            android:elevation="10dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
