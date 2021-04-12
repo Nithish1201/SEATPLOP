@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SEATPLOP">
-        <activity android:name=".LoginSignup.EventActivity"></activity>
+        <activity android:name=".MainCourse.EventActivity"></activity>
         <activity android:name=".LoginSignup.Admin.VerifyStadiumIdActivity" />
         <activity android:name=".LoginSignup.Admin.EditAdminDetalisActivity" />
         <activity android:name=".LoginSignup.Admin.ScheduleEventActivity" />
@@ -20,7 +20,7 @@
         <activity android:name=".LoginSignup.Admin.AdminDashboardActivity" />
         <activity android:name=".LoginSignup.Admin.AdminCodeActivity" />
         <activity android:name=".LoginSignup.LocationSelectionActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainCourse.MainActivity" />
         <activity android:name=".LoginSignup.ForgotPasswordMessageActivity" />
         <activity android:name=".LoginSignup.SetNewPasswordActivity" />
         <activity android:name=".LoginSignup.MakeSelectionActivity" />

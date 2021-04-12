@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.nithishkumar.seatplop.MainActivity;
+import com.nithishkumar.seatplop.MainCourse.MainActivity;
 import com.nithishkumar.seatplop.R;
 
 public class StartActivity extends AppCompatActivity {
@@ -97,10 +97,10 @@ public class StartActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            //FirebaseAuth.getInstance().signOut();
-            Intent intent = new Intent(StartActivity.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
-            finish();
+            FirebaseAuth.getInstance().signOut();
+            //Intent intent = new Intent(StartActivity.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            //startActivity(intent);
+            //finish();
         }
     }
 }

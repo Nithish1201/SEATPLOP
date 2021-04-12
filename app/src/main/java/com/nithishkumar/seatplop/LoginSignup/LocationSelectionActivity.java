@@ -25,7 +25,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.google.firebase.database.FirebaseDatabase;
-import com.nithishkumar.seatplop.MainActivity;
+import com.nithishkumar.seatplop.MainCourse.MainActivity;
 import com.nithishkumar.seatplop.Model.Users;
 import com.nithishkumar.seatplop.R;
 

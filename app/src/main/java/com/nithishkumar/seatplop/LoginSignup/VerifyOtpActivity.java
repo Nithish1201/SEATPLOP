@@ -21,7 +21,7 @@ import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.nithishkumar.seatplop.LoginSignup.Admin.AdminCodeActivity;
-import com.nithishkumar.seatplop.MainActivity;
+import com.nithishkumar.seatplop.MainCourse.MainActivity;
 import com.nithishkumar.seatplop.R;
 
 import java.util.concurrent.TimeUnit;

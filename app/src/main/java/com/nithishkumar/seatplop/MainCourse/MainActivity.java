@@ -1,4 +1,4 @@
-package com.nithishkumar.seatplop;
+package com.nithishkumar.seatplop.MainCourse;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.nithishkumar.seatplop.Fragments.HomeFragment;
 import com.nithishkumar.seatplop.Fragments.ProfileFragment;
+import com.nithishkumar.seatplop.R;
 
 public class MainActivity extends AppCompatActivity {
 

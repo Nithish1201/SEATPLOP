@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginSignup.EventActivity">
+    tools:context=".MainCourse.EventActivity">
 
     <RelativeLayout
         android:id="@+id/image_bg"
@@ -92,7 +92,7 @@
                         android:layout_height="50dp"
                         android:layout_toEndOf="@id/event_name_event"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/colorless_save"/>
+                        android:src="@drawable/save"/>
 
                 </RelativeLayout>
 
@@ -259,7 +259,7 @@
                         android:layout_height="50dp"
                         android:layout_toEndOf="@id/stadium_name_event"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/colorless_heart"/>
+                        android:src="@drawable/heart"/>
 
                 </RelativeLayout>
 
@@ -310,12 +310,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_toEndOf="@id/seat_img"
-                        android:text="you have only :"
-                        android:layout_centerVertical="true"
-                        android:textSize="17sp"
-                        android:padding="5dp"
                         android:fontFamily="@font/muli"
-                        android:textColor="@color/black"/>
+                        android:padding="5dp"
+                        android:layout_centerVertical="true"
+                        android:text="you have only :"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
 
                     <TextView
                         android:id="@+id/no_of_seats_left_event"
@@ -324,7 +324,7 @@
                         android:layout_toEndOf="@id/no_of_seats_left_txt"
                         android:text="84"
                         android:layout_centerVertical="true"
-                        android:textSize="20sp"
+                        android:textSize="17sp"
                         android:padding="5dp"
                         android:fontFamily="@font/muli_black"
                         android:textColor="@color/colorPrimary"/>

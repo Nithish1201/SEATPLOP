@@ -18,7 +18,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.nithishkumar.seatplop.LoginSignup.EventActivity;
+import com.nithishkumar.seatplop.MainCourse.EventActivity;
 import com.nithishkumar.seatplop.Model.Events;
 import com.nithishkumar.seatplop.Model.Stadiums;
 import com.nithishkumar.seatplop.R;
@@ -110,7 +110,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.Viewholder> 
         final int min = 1;
         final int max = 4;
         final int random = new Random().nextInt((max - min) + 1) + min;
-
         switch (random){
 
             case 1:
