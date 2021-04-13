@@ -2,6 +2,7 @@ package com.nithishkumar.seatplop.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -135,6 +136,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.Viewholder> 
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, EventActivity.class);
                 intent.putExtra("eventId",events.getEventId_());
+                Log.i("info",events.getEventId_());
                 mContext.startActivity(intent);
             }
         });
