@@ -97,10 +97,10 @@ public class StartActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            //FirebaseAuth.getInstance().signOut();
-            Intent intent = new Intent(StartActivity.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
-            finish();
+            FirebaseAuth.getInstance().signOut();
+            //Intent intent = new Intent(StartActivity.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            //startActivity(intent);
+            //finish();
         }
     }
 }
