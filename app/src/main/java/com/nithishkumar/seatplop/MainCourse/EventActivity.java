@@ -157,5 +157,8 @@ public class EventActivity extends AppCompatActivity {
     }
 
     public void BookTicketBtn(View view) {
+        Intent intent = new Intent(EventActivity.this,DateTimeActivity.class);
+        intent.putExtra("eventId",eventId);
+        startActivity(intent);
     }
 }

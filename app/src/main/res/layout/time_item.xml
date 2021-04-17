@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dp"
+    android:layout_height="90dp">
+
+    <RelativeLayout
+        android:layout_width="130dp"
+        android:layout_height="70dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/date_event_bg_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/black_border"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/time_item_time_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="09:00 AM"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:textColor="@color/green"
+                android:fontFamily="@font/muli_semibold"/>
+
+            <TextView
+                android:id="@+id/time_item_session_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Morning"
+                android:layout_below="@+id/time_item_time_txt"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:textSize="17sp"
+                android:textAlignment="center"
+                android:textColor="@color/green"
+                android:fontFamily="@font/muli"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

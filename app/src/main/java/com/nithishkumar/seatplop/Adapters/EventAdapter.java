@@ -108,7 +108,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.Viewholder> 
             holder.toText.setText("-");
         }
 
-        final int min = 1;
+        /**final int min = 1;
         final int max = 4;
         final int random = new Random().nextInt((max - min) + 1) + min;
         switch (random){
@@ -129,7 +129,9 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.Viewholder> 
                 holder.cardBackground.setImageResource(R.drawable.bg5_);
                 break;
 
-        }
+        }**/
+
+        holder.cardBackground.setImageResource(R.drawable.bgproround);
 
         holder.cardBtn.setOnClickListener(new View.OnClickListener() {
             @Override

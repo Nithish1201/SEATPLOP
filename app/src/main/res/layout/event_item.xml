@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="190dp"
         android:layout_centerVertical="true"
         android:layout_gravity="center"
         android:background="@color/white">
@@ -18,7 +18,7 @@
             android:id="@+id/card_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/bg4_" />
+            android:src="@drawable/bgproround" />
 
 
         <RelativeLayout
@@ -59,7 +59,7 @@
                     android:gravity="center"
                     android:text="Event name"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="20sp" />
 
             </LinearLayout>
@@ -93,7 +93,7 @@
                         android:padding="2dp"
                         android:text="26/01/2021"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
+                        android:textColor="@color/lightWhite"
                         android:textSize="15sp" />
 
                     <TextView
@@ -106,7 +106,7 @@
                         android:padding="2dp"
                         android:text="-"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
+                        android:textColor="@color/lightWhite"
                         android:textSize="15sp" />
 
                     <TextView
@@ -119,7 +119,7 @@
                         android:padding="2dp"
                         android:text="29/01/2021"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
+                        android:textColor="@color/lightWhite"
                         android:textSize="15sp" />
 
                 </LinearLayout>
@@ -149,9 +149,9 @@
                     android:gravity="center"
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
-                    android:text="jawaharlal stadiumdfghfgghghf"
+                    android:text="jawaharlal stadium"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
+                    android:textColor="@color/lightWhite"
                     android:textSize="15sp" />
 
             </LinearLayout>
