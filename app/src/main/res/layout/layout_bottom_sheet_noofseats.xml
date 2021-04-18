@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomSheetContainer"
+    android:orientation="vertical"
+    app:layout_behavior="com.your.package.LockableBottomSheetBehavior"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="7dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="5dp"
+            android:layout_gravity="center"
+            android:src="@color/light_white"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="How many seats?"
+        android:textSize="20sp"
+        android:fontFamily="@font/muli_extrabold"
+        android:textColor="@color/colorPrimaryText"
+        android:layout_marginStart="10dp"
+        android:padding="5dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/no_of_seats_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/scooter"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginStart="10dp"
+        android:rowCount="1"
+        android:columnCount="10">
+
+        <TextView
+            android:id="@+id/no_of_seat_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:paddingStart="11dp"
+            android:paddingEnd="11dp"
+            android:textSize="25sp"
+            android:fontFamily="@font/baloo"
+            android:textColor="@color/colorPrimaryText"
+            android:textAlignment="center"
+            android:tag="1"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:onClick="selectNoOfSeats"/>
+
+        <TextView
+            android:id="@+id/no_of_seat_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:paddingStart="11dp"
+            android:paddingEnd="11dp"
+            android:textSize="25sp"
+            android:background="@drawable/color_primary_border"
+            android:fontFamily="@font/baloo"
+            android:textColor="@color/colorPrimaryText"
+            android:textAlignment="center"
+            android:tag="2"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:onClick="selectNoOfSeats"/>
+
+        <TextView
+            android:id="@+id/no_of_seat_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:paddingStart="11dp"
+            android:paddingEnd="11dp"
+            android:textSize="25sp"
+            android:fontFamily="@font/baloo"
+            android:textColor="@color/colorPrimaryText"
+            android:textAlignment="center"
+            android:tag="3"
+            android:layout_column="2"
+            android:layout_row="0"/>
+
+        <TextView
+            android:id="@+id/no_of_seat_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:paddingStart="11dp"
+            android:paddingEnd="11dp"
+            android:textSize="25sp"
+            android:fontFamily="@font/baloo"
+            android:textColor="@color/colorPrimaryText"
+            android:textAlignment="center"
+            android:tag="4"
+            android:layout_column="3"
+            android:layout_row="0"/>
+
+        <TextView
+            android:id="@+id/no_of_seat_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:paddingStart="11dp"
+            android:paddingEnd="11dp"
+            android:textSize="25sp"
+            android:fontFamily="@font/baloo"
+            android:textColor="@color/colorPrimaryText"
+            android:textAlignment="center"
+            android:tag="5"
+            android:layout_column="4"
+            android:layout_row="0"/>
+
+        <TextView
+            android:id="@+id/no_of_seat_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6"
+            android:paddingStart="11dp"
+            android:paddingEnd="11dp"
+            android:textSize="25sp"
+            android:fontFamily="@font/baloo"
+            android:textColor="@color/colorPrimaryText"
+            android:textAlignment="center"
+            android:tag="6"
+            android:layout_column="5"
+            android:layout_row="0"/>
+
+        <TextView
+            android:id="@+id/no_of_seat_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7"
+            android:paddingStart="11dp"
+            android:paddingEnd="11dp"
+            android:textSize="25sp"
+            android:fontFamily="@font/baloo"
+            android:textColor="@color/colorPrimaryText"
+            android:textAlignment="center"
+            android:tag="7"
+            android:layout_column="6"
+            android:layout_row="0"/>
+
+        <TextView
+            android:id="@+id/no_of_seat_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8"
+            android:paddingStart="11dp"
+            android:paddingEnd="11dp"
+            android:textSize="25sp"
+            android:fontFamily="@font/baloo"
+            android:textColor="@color/colorPrimaryText"
+            android:textAlignment="center"
+            android:tag="8"
+            android:layout_column="7"
+            android:layout_row="0"/>
+
+        <TextView
+            android:id="@+id/no_of_seat_9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9"
+            android:paddingStart="11dp"
+            android:paddingEnd="11dp"
+            android:textSize="25sp"
+            android:fontFamily="@font/baloo"
+            android:textColor="@color/colorPrimaryText"
+            android:textAlignment="center"
+            android:tag="9"
+            android:layout_column="8"
+            android:layout_row="0"/>
+
+        <TextView
+            android:id="@+id/no_of_seat_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:paddingStart="11dp"
+            android:paddingEnd="11dp"
+            android:textSize="25sp"
+            android:fontFamily="@font/baloo"
+            android:textColor="@color/colorPrimaryText"
+            android:textAlignment="center"
+            android:tag="10"
+            android:layout_column="9"
+            android:layout_row="0"/>
+
+    </GridLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorDivider"
+        android:layout_below="@+id/no_of_seats_lay"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <Button
+            android:id="@+id/lay_bottom_sheet_confirm_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/color_primary_circle"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="20dp"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:text="Select Seats"
+            android:textAllCaps="false"
+            android:textSize="17sp"
+            android:fontFamily="@font/muli_semibold"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
