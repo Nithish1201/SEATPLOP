@@ -6,17 +6,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,7 +21,6 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,11 +28,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.nithishkumar.seatplop.Adapters.DateAdapter;
 import com.nithishkumar.seatplop.Adapters.TimeAdapter;
-import com.nithishkumar.seatplop.LoginSignup.LoginActivity;
-import com.nithishkumar.seatplop.LoginSignup.StartActivity;
 import com.nithishkumar.seatplop.Model.Date;
 import com.nithishkumar.seatplop.Model.Events;
-import com.nithishkumar.seatplop.Model.Tickets;
 import com.nithishkumar.seatplop.Model.Time;
 import com.nithishkumar.seatplop.R;
 
@@ -62,8 +54,6 @@ public class DateTimeActivity extends AppCompatActivity {
 
     String time;
 
-    SharedPreferences sharedPreferences;
-
     int noOfSeats;
 
     BottomSheetDialog bottomSheetDialog;
@@ -79,6 +69,8 @@ public class DateTimeActivity extends AppCompatActivity {
     TextView seat_8;
     TextView seat_9;
     TextView seat_10;
+
+    Boolean mIsRunning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,13 +139,31 @@ public class DateTimeActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.dismiss();
+                            bottomSheetDialog.setContentView(bottomSheetView);
+                            bottomSheetDialog.show();
                         }
                     });
 
+
             AlertDialog alertDialog = builder.create();
-            alertDialog.show();
+
+            if (mIsRunning.equals(true)){
+                alertDialog.show();
+            }
         }
     };
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mIsRunning = true;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mIsRunning = false;
+    }
 
     private void readTimeList() {
         FirebaseDatabase.getInstance().getReference().child("Events").child(eventId).addValueEventListener(new ValueEventListener() {
@@ -219,6 +229,8 @@ public class DateTimeActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         bottomSheetDialog.setContentView(bottomSheetView);
+
+        bottomSheetDialog.setCancelable(false);
 
         ImageView noOfSeatImage = bottomSheetView.findViewById(R.id.no_of_seats_image);
         Button confirmBtn = bottomSheetView.findViewById(R.id.lay_bottom_sheet_confirm_btn);
