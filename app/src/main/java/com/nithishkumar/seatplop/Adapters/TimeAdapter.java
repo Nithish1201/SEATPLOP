@@ -57,6 +57,7 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeAdapter.Viewholder>{
             holder.bgImage.setImageResource(R.drawable.black_border);
             Intent intent = new Intent("timeAdapterValues");
             intent.putExtra("time",time.getTime());
+            intent.putExtra("session",time.getSession());
             LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
         } else{
             holder.bgImage.setImageResource(R.drawable.black_border);

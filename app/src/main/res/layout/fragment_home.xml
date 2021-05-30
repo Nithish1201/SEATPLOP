@@ -35,6 +35,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/fullname_home"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="FullName"
@@ -47,6 +48,7 @@
                         android:textColor="@color/black"/>
 
                     <TextView
+                        android:id="@+id/location_home"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="location"

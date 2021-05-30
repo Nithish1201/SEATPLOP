@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainCourse.SeatStandActivity">
+
+    <RelativeLayout
+        android:id="@+id/action_bar_lay"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/gradient_app_bar"
+        android:layout_height="?actionBarSize">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_general_back_icon"
+            android:layout_centerVertical="true"
+            android:padding="5dp"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/stadium_photo_pic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitStart"
+        android:layout_below="@+id/action_bar_lay"
+        android:src="@drawable/stadium_photo_clear_crop"
+        android:layout_margin="5dp"
+        android:padding="5dp"/>
+
+    <ListView
+        android:id="@+id/stand_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/stadium_photo_pic"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/bottom_sheet_background"/>
+
+</RelativeLayout>

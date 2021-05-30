@@ -53,6 +53,7 @@ public class DateTimeActivity extends AppCompatActivity {
     String year;
 
     String time;
+    String session;
 
     int noOfSeats;
 
@@ -123,6 +124,7 @@ public class DateTimeActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
            time =  intent.getStringExtra("time");
+           session =  intent.getStringExtra("session");
            //Toast.makeText(context, time, Toast.LENGTH_SHORT).show();
             AlertDialog.Builder builder = new AlertDialog.Builder(DateTimeActivity.this);
             builder.setTitle("CONFIRMATION")
@@ -133,6 +135,15 @@ public class DateTimeActivity extends AppCompatActivity {
                         public void onClick(DialogInterface dialogInterface, int i) {
                             //next activity
                             //pass intent
+                            Intent intent1 = new Intent(DateTimeActivity.this,SeatStandActivity.class);
+                            intent1.putExtra("date",date);
+                            intent1.putExtra("month",month);
+                            intent1.putExtra("year",year);
+                            intent1.putExtra("time",time);
+                            intent1.putExtra("noOfSeats",noOfSeats);
+                            intent1.putExtra("eventId",eventId);
+                            intent1.putExtra("session",session);
+                            startActivity(intent1);
                         }
                     })
                     .setNegativeButton("NO", new DialogInterface.OnClickListener() {
