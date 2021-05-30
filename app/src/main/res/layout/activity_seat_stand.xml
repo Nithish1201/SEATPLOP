@@ -9,7 +9,6 @@
 
     <RelativeLayout
         android:id="@+id/action_bar_lay"
-        android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:background="@drawable/gradient_app_bar"
         android:layout_height="?actionBarSize">
@@ -34,12 +33,11 @@
         android:padding="5dp"/>
 
     <ListView
-        android:id="@+id/stand_list_view"
+        android:id="@+id/stand_list_view_seatstandactivity"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/stadium_photo_pic"
         android:padding="5dp"
-        android:layout_margin="5dp"
-        android:background="@drawable/bottom_sheet_background"/>
+        android:layout_margin="5dp"/>
 
 </RelativeLayout>
