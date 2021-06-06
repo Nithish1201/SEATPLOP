@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SEATPLOP">
-        <activity android:name=".MainCourse.SeatStandActivity"></activity>
+        <activity android:name=".MainCourse.TicketActivity"></activity>
+        <activity android:name=".MainCourse.SeatStandActivity" />
         <activity android:name=".MainCourse.DateTimeActivity" />
         <activity android:name=".MainCourse.EventActivity" />
         <activity android:name=".LoginSignup.Admin.VerifyStadiumIdActivity" />

@@ -4,40 +4,293 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     tools:context=".MainCourse.SeatStandActivity">
 
     <RelativeLayout
-        android:id="@+id/action_bar_lay"
+        android:id="@+id/first"
         android:layout_width="match_parent"
-        android:background="@drawable/gradient_app_bar"
         android:layout_height="?actionBarSize">
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_general_back_icon"
-            android:layout_centerVertical="true"
-            android:padding="5dp"/>
+            android:id="@+id/back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@drawable/ic_general_back_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/back_icon"
+            android:text="Select a sector..."
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/muli"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"/>
 
     </RelativeLayout>
 
     <ImageView
-        android:id="@+id/stadium_photo_pic"
+        android:id="@+id/stadium_photo_clear_crop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scaleType="fitStart"
-        android:layout_below="@+id/action_bar_lay"
-        android:src="@drawable/stadium_photo_clear_crop"
-        android:layout_margin="5dp"
-        android:padding="5dp"/>
+        android:layout_below="@+id/first"
+        android:src="@drawable/stadium_photo_clear_crop"/>
 
-    <ListView
-        android:id="@+id/stand_list_view_seatstandactivity"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/stadium_photo_pic"
-        android:padding="5dp"
-        android:layout_margin="5dp"/>
+        android:layout_below="@+id/stadium_photo_clear_crop">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/a_upper"
+                        android:layout_width="165dp"
+                        android:layout_height="100dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="A - UPPER"
+                        android:onClick="Aupper"
+                        android:background="@drawable/button_background_color_primary"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"/>
+
+                    <Button
+                        android:id="@+id/a_lower"
+                        android:layout_width="165dp"
+                        android:layout_height="100dp"
+                        android:text="A - LOWER"
+                        android:onClick="Alower"
+                        android:background="@drawable/button_background_color_primary"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/b_upper"
+                        android:layout_width="165dp"
+                        android:layout_height="100dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="B - UPPER"
+                        android:onClick="Bupper"
+                        android:background="@drawable/button_background_black"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"/>
+
+                    <Button
+                        android:id="@+id/b_lower"
+                        android:layout_width="165dp"
+                        android:layout_height="100dp"
+                        android:text="B - LOWER"
+                        android:onClick="Blower"
+                        android:background="@drawable/button_background_black"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/c_upper"
+                        android:layout_width="165dp"
+                        android:layout_height="100dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="C - UPPER"
+                        android:onClick="Cupper"
+                        android:background="@drawable/button_background_color_primary"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"/>
+
+                    <Button
+                        android:id="@+id/c_lower"
+                        android:layout_width="165dp"
+                        android:layout_height="100dp"
+                        android:text="C - LOWER"
+                        android:onClick="Clower"
+                        android:background="@drawable/button_background_color_primary"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/d_upper"
+                        android:layout_width="165dp"
+                        android:layout_height="100dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="D - UPPER"
+                        android:onClick="Dupper"
+                        android:background="@drawable/button_background_black"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"/>
+
+                    <Button
+                        android:id="@+id/d_lower"
+                        android:layout_width="165dp"
+                        android:layout_height="100dp"
+                        android:text="D - LOWER"
+                        android:onClick="Dlower"
+                        android:background="@drawable/button_background_black"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/e_upper"
+                        android:layout_width="165dp"
+                        android:layout_height="100dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="E - UPPER"
+                        android:onClick="Eupper"
+                        android:background="@drawable/button_background_color_primary"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"/>
+
+                    <Button
+                        android:id="@+id/e_lower"
+                        android:layout_width="165dp"
+                        android:layout_height="100dp"
+                        android:text="E - LOWER"
+                        android:onClick="Elower"
+                        android:background="@drawable/button_background_color_primary"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/f_upper"
+                        android:layout_width="165dp"
+                        android:layout_height="100dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="F - UPPER"
+                        android:onClick="Fupper"
+                        android:background="@drawable/button_background_black"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"/>
+
+                    <Button
+                        android:id="@+id/f_lower"
+                        android:layout_width="165dp"
+                        android:layout_height="100dp"
+                        android:text="F - LOWER"
+                        android:onClick="Flower"
+                        android:background="@drawable/button_background_black"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/g_upper"
+                        android:layout_width="165dp"
+                        android:layout_height="100dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="G - UPPER"
+                        android:onClick="Gupper"
+                        android:background="@drawable/button_background_color_primary"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"/>
+
+                    <Button
+                        android:id="@+id/g_lower"
+                        android:layout_width="165dp"
+                        android:layout_height="100dp"
+                        android:text="G - LOWER"
+                        android:onClick="Glower"
+                        android:background="@drawable/button_background_color_primary"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/h_upper"
+                        android:layout_width="165dp"
+                        android:layout_height="100dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="H - UPPER"
+                        android:onClick="Hupper"
+                        android:background="@drawable/button_background_black"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"/>
+
+                    <Button
+                        android:id="@+id/h_lower"
+                        android:layout_width="165dp"
+                        android:layout_height="100dp"
+                        android:text="H - LOWER"
+                        android:onClick="Hlower"
+                        android:background="@drawable/button_background_black"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
 
 </RelativeLayout>

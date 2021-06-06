@@ -140,7 +140,7 @@ public class DateTimeActivity extends AppCompatActivity {
                             intent1.putExtra("month",month);
                             intent1.putExtra("year",year);
                             intent1.putExtra("time",time);
-                            intent1.putExtra("noOfSeats",noOfSeats);
+                            intent1.putExtra("noOfSeats",String.valueOf(noOfSeats));
                             intent1.putExtra("eventId",eventId);
                             intent1.putExtra("session",session);
                             startActivity(intent1);
